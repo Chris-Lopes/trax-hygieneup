@@ -1,0 +1,61 @@
+import os
+import sqlite3
+
+# Table names
+user = 'USER'
+seller = 'SELLER'
+product = 'PRODUCT'
+reviews = 'REVIEWS'
+
+# SQlite connection
+con = sqlite3.connect(os.path.join('backend', 'base', 'data.db'))
+cur = con.cursor()
+
+
+def main():
+    # Creating tables
+    cur.execute(f'''CREATE TABLE IF NOT EXISTS {seller} (
+                id INTEGER PRIMARY KEY,
+                name TEXT,
+                description TEXT,
+                image BLOB,
+                fssai INTEGER,
+                email TEXT,
+                phone INTEGER,
+                password BLOB
+                )'''
+                )
+    cur.execute(f'''CREATE TABLE IF NOT EXISTS {user} (
+                id INTEGER PRIMARY KEY,
+                name TEXT,
+                description TEXT,
+                image BLOB,
+                email TEXT,
+                phone INTEGER,
+                password BLOB
+                )'''
+                )
+    cur.execute(f'''CREATE TABLE IF NOT EXISTS {reviews} (
+                id INTEGER PRIMARY KEY,
+                user_id INTEGER NOT NULL,
+                title TEXT,
+                description TEXT,
+                product_image BLOB,
+                rating INTERGER,
+                time TEXT
+                )'''
+                )
+    cur.execute(f'''CREATE TABLE IF NOT EXISTS {product} (
+                id INTEGER PRIMARY KEY,
+                seller_id INTEGER NOT NULL,
+                name TEXT,
+                description TEXT,
+                product_image BLOB
+                )'''
+                )
+    con.commit()
+    return con, cur
+
+
+if __name__ == '__main__':
+    main()
