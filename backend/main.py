@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response
+from flask import Flask, request, make_response, jsonify
 from base import manager
 
 app = Flask(__name__)
@@ -15,9 +15,15 @@ def webpage():
 def login():
     request.method = 'GET'
     email = request.form.get('email')
-    password1 = request.form.get('password1') 
-    password2 = request.form.get('password2')
+    password = request.form.get('password') 
     data = user.login()
+    print(data)
+    if(data):
+         tup = data[0]
+         naksha = {user.id: tup[0], user.name: tup[1], user.description:tup1[2], user.image:tup[3], user.email:tup[4], user.phone: tup[5]}
+         print(naksha)
+         return jsonify(naksha), 200
+    else:
 
 #This is the profile page
 @app.route('/profile')
@@ -39,28 +45,13 @@ def user_create():
 
         if status :
             response = make_response('Success!', 200)
+            print(make_response)
             return response
         
         else:
             response = make_response('Failed!', 400)
             return response
         
-        if len(email) < 4:
-            flash('Email must be greater than 4 characters',category='error')
-            pass
-        elif len(name) < 1:
-            flash('First name must be greater than 1 characters',category='error')
-            pass
-        elif password1 != password2:
-            flash('Passwords don\'t match',category='error')
-            pass
-        elif len(password1) < 7:
-            flash('Password must be atlease 7 characters',category='error')
-            pass
-        else:
-            flash('Account created!',category='success')
-            #add user to database
-            pass
-
+    
 if __name__ == '__main__':
     app.run(debug=True)
