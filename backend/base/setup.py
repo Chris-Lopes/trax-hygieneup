@@ -18,7 +18,6 @@ def main():
                 id INTEGER PRIMARY KEY,
                 name TEXT,
                 description TEXT,
-                image BLOB,
                 fssai INTEGER,
                 email TEXT,
                 phone INTEGER,
@@ -29,7 +28,6 @@ def main():
                 id INTEGER PRIMARY KEY,
                 name TEXT,
                 description TEXT,
-                image BLOB,
                 email TEXT,
                 phone INTEGER,
                 password BLOB
@@ -38,9 +36,9 @@ def main():
     cur.execute(f'''CREATE TABLE IF NOT EXISTS {reviews} (
                 id INTEGER PRIMARY KEY,
                 user_id INTEGER NOT NULL,
+                product_id INTEGER NOT NULL
                 title TEXT,
                 description TEXT,
-                product_image BLOB,
                 rating INTERGER,
                 time TEXT
                 )'''
