@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import HomePage from "@/components/HomePgae";
 
 export default function Home() {
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        hi reniyas is black
-      </main>
+      <main className="">
+        <HomePage/>
+      </main> 
     </>
   );
 }
