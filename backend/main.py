@@ -20,17 +20,22 @@ def login():
     request.method = 'GET'
     email = request.form.get('email')
     password = request.form.get('password')
-    data = user.login()
+    data = user.login(email=email, password=password)
     print(data)
     if (data):
-        tup = data[0]
-        naksha = {user.id: tup[0], user.name: tup[1], user.description: tup1[2],
-                  user.image: tup[3], user.email: tup[4], user.phone: tup[5]}
-        print(naksha)
-        return jsonify(naksha), 200
+        return jsonify(data)
     else:
-
+        return False, 400
         # This is the profile page
+
+
+@app.route('/user/get/<int:id>')
+def get_user(id):
+    data = user.get(id=id)
+    if (data):
+        return data
+    else:
+        return False
 
 
 @app.route('/profile')
