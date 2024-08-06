@@ -152,8 +152,8 @@ class Products(Base):
         self.table = setup.product
 
     def insert(self, seller_id: int, name: str, description: str, product_image: bytes):
-        self.cursor.execute(f'''INSERT INTO {
-                            self.table} (seller_id, name, description, product_image)''', (seller_id, name, description, product_image))
+        self.cursor.execute(f'''INSERT INTO
+                            {self.table} ( seller_id, name ,description, product_image) VALUES (?,?,?,?)''', (seller_id, name, description, product_image))
         return True
 
     def get(self, id=0, seller_id=0, name=''):
@@ -207,7 +207,7 @@ def insert_product():
     import os
 
     product = Products()
-    path = 'images'
+    path = os.path.join('backend', 'base', 'images')
 
     products_data = [
         # Seller 1: Alice Smith
@@ -250,15 +250,16 @@ def insert_product():
         [5, 'Protein Bars',
             'Homemade protein bars for a healthy snack (Healthy)', b'image_bytes_15']
     ]
-    for i in len(products_data):
+    for i in range(len(products_data)):
         image = ''
         for j in range(3):
-            with open(os.path.join(path, f'{i}{j}.jpg'), 'r') as file:
+            with open(os.path.join(path, f'{i}{j}.jpg'), 'rb') as file:
                 image = file.read()
-            product.insert(products_data[i][0], products_data[i]
-                           [1], products_data[i][2], image)
+            product.insert(
+                products_data[i][0], products_data[i][1], products_data[i][2], image)
 
 
 if __name__ == '__main__':
     insert_seller()
     insert_user()
+    insert_product()
