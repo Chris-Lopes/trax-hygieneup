@@ -30,7 +30,7 @@ class User(Base):
 
     def insert(self, name: str, description: str, email: str, phone: int, password: str):
         if (self.validate_not_exist(email=email, phone=phone)):
-            self.cursor.execute(f'''INSERT INTO {self.table} (name, description, email, phone, password) VALUES (?,?,?,?,?,?)''', (
+            self.cursor.execute(f'''INSERT INTO {self.table} (name, description, email, phone, password) VALUES (?,?,?,?,?)''', (
                 name, description, email, phone, password))
             con.commit()
             return True
@@ -167,5 +167,98 @@ class Products(Base):
             return data
 
 
-if __name__ == '__main__':
+def insert_seller():
     seller = Seller()
+    data = [
+        ['Alice Smith', 'A health inspector', 123456789,
+            'alice@example.com', 9876543210, b'securepassword1'],
+        ['Bob Johnson', 'Restaurant owner', 987654321,
+            'bob@example.com', 8765432109, b'securepassword2'],
+        ['Charlie Brown', 'Food supplier', 456123789,
+            'charlie@example.com', 7654321098, b'securepassword3'],
+        ['Diana Ross', 'Catering service', 789456123,
+            'diana@example.com', 6543210987, b'securepassword4'],
+        ['Eve Davis', 'Dietitian', 321654987,
+            'eve@example.com', 5432109876, b'securepassword5']
+    ]
+    for person in data:
+        seller.insert(person[0], person[1], person[2],
+                      person[3], person[4], person[5])
+
+
+def insert_user():
+    user = User()
+    data = [
+        ['John Doe', 'Customer', 'john@example.com', 1234567890, b'userpassword1'],
+        ['Jane Smith', 'Blog Writer', 'jane@example.com',
+            2345678901, b'userpassword2'],
+        ['Sam Wilson', 'Subscriber', 'sam@example.com', 3456789012, b'userpassword3'],
+        ['Lucy Liu', 'Forum Moderator', 'lucy@example.com',
+            4567890123, b'userpassword4'],
+        ['Mike Johnson', 'Community Member',
+            'mike@example.com', 5678901234, b'userpassword5']
+    ]
+
+    for person in data:
+        user.insert(person[0], person[1], person[2], person[3], person[4])
+
+
+def insert_product():
+    import os
+
+    product = Products()
+    path = 'images'
+
+    products_data = [
+        # Seller 1: Alice Smith
+        [1, 'Organic Honey',
+            'Pure and natural honey from wildflowers (Healthy)', b'image_bytes_1'],
+        [1, 'Herbal Tea',
+            'A blend of organic herbs for a refreshing tea (Healthy)', b'image_bytes_2'],
+        [1, 'Nut Mix',
+            'A mix of organic nuts and dried fruits (Healthy)', b'image_bytes_3'],
+
+        # Seller 2: Bob Johnson
+        [2, 'Gourmet Pizza',
+            'Wood-fired pizza with fresh ingredients (Fast Food)', b'image_bytes_4'],
+        [2, 'Artisan Bread',
+            'Freshly baked bread with organic flour (Bakery)', b'image_bytes_5'],
+        [2, 'Spaghetti Bolognese',
+            'Traditional Italian pasta with meat sauce (Fast Food)', b'image_bytes_6'],
+
+        # Seller 3: Charlie Brown
+        [3, 'Farm Fresh Eggs',
+            'Organic eggs from free-range chickens (Healthy)', b'image_bytes_7'],
+        [3, 'Vegetable Box',
+            'A box of seasonal organic vegetables (Healthy)', b'image_bytes_8'],
+        [3, 'Fresh Juice',
+            'Cold-pressed juice made from organic fruits (Healthy)', b'image_bytes_9'],
+
+        # Seller 4: Diana Ross
+        [4, 'Catering Package',
+            'Full-service catering for events (Service)', b'image_bytes_10'],
+        [4, 'Gourmet Desserts',
+            'Assorted gourmet desserts for special occasions (Bakery)', b'image_bytes_11'],
+        [4, 'Healthy Salads',
+            'Assorted salads with organic ingredients (Healthy)', b'image_bytes_12'],
+
+        # Seller 5: Eve Davis
+        [5, 'Diet Plan',
+            'Personalized diet plan for healthy living (Service)', b'image_bytes_13'],
+        [5, 'Nutrition Counseling',
+            'One-on-one nutrition counseling sessions (Service)', b'image_bytes_14'],
+        [5, 'Protein Bars',
+            'Homemade protein bars for a healthy snack (Healthy)', b'image_bytes_15']
+    ]
+    for i in len(products_data):
+        image = ''
+        for j in range(3):
+            with open(os.path.join(path, f'{i}{j}.jpg'), 'r') as file:
+                image = file.read()
+            product.insert(products_data[i][0], products_data[i]
+                           [1], products_data[i][2], image)
+
+
+if __name__ == '__main__':
+    insert_seller()
+    insert_user()
