@@ -33,7 +33,7 @@ def login():
 def get_user(id):
     data = user.get(id=id)
     if (data):
-        return data
+        return jsonify(data)
     else:
         return False
 
