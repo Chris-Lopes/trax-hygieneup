@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Navbar from "./Navbar";
 import ReviewCard from "./ReviewCard";
+import Footer from "./Footer";
 
 export default function Component() {
   return (
@@ -253,11 +254,12 @@ export default function Component() {
           </div>
         </section>
       </main>
+      <Footer/>
     </div>
   );
 }
 
-function StarIcon(props) {
+function StarIcon(props: any) {
   return (
     <svg
       {...props}
@@ -276,7 +278,7 @@ function StarIcon(props) {
   );
 }
 
-function UserIcon(props) {
+function UserIcon(props: string) {
   return (
     <svg
       {...props}
@@ -296,7 +298,7 @@ function UserIcon(props) {
   );
 }
 
-function UtensilsIcon(props) {
+function UtensilsIcon(props: string) {
   return (
     <svg
       {...props}

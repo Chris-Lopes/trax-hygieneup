@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
           className="flex items-center gap-2 text-xl font-bold"
           prefetch={false}
         >
-          FoodReviews
+          HygieneUp
         </Link>
         <div className="relative flex-1 max-w-md">
           <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -89,14 +89,18 @@ const Navbar: React.FC = () => {
           />
         </div>
         <div className="flex items-center gap-4">
-          <Button variant="outline">
-            <UserIcon className="w-5 h-5 mr-2" />
-            Sign In
-          </Button>
-          <Button>
-            <PlusIcon className="w-5 h-5 mr-2" />
-            Sign Up
-          </Button>
+          <Link href={"/signin"}>
+            <Button variant="ghost">
+              <UserIcon className="w-5 h-5 mr-2 " />
+              Sign In
+            </Button>
+          </Link>
+          <Link href={"/signup"}>
+            <Button variant="ghost">
+              <PlusIcon className="w-5 h-5 mr-2" />
+              Sign Up
+            </Button>
+          </Link>
         </div>
       </div>
     </header>
