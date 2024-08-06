@@ -36,7 +36,7 @@ def main():
     cur.execute(f'''CREATE TABLE IF NOT EXISTS {reviews} (
                 id INTEGER PRIMARY KEY,
                 user_id INTEGER NOT NULL,
-                product_id INTEGER NOT NULL
+                product_id INTEGER NOT NULL,
                 title TEXT,
                 description TEXT,
                 rating INTERGER,

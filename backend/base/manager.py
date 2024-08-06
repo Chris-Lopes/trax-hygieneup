@@ -168,10 +168,4 @@ class Products(Base):
 
 
 if __name__ == '__main__':
-    user = User()
     seller = Seller()
-    # user.login('Nam', 'des', 'sim', 'anoni@emyatil.com', 9816326423, 'phurut')
-    # user.login(email='anoni@emyatil.com', password='phurut')
-    seller.insert('Seller', "des", 123412341,
-                  'sell@mail.com', 1412356243, 'secret')
-    seller.login(email='sell@mail.com', password='secret')
