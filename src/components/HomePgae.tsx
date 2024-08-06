@@ -1,27 +1,13 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Navbar from './Navbar';
 
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Food Store Reviews</title>
-        <meta name="description" content="Read and share reviews on your favorite food stores." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className="bg-gray-100 min-h-screen">
-        <header className="bg-white shadow-md">
-          <nav className="container mx-auto flex justify-between items-center p-6">
-            <div className="text-2xl font-bold text-blue-600">Food Store Reviews</div>
-            <div className="space-x-4">
-              <a href="#" className="text-gray-800 hover:text-blue-600">Home</a>
-              <a href="#" className="text-gray-800 hover:text-blue-600">About</a>
-              <a href="#" className="text-gray-800 hover:text-blue-600">Contact</a>
-            </div>
-          </nav>
-        </header>
+        <Navbar/>
 
         <section className="container mx-auto p-6">
           <div className="text-center mb-12">
