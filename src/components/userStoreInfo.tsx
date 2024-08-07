@@ -2,14 +2,6 @@
 
 import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,

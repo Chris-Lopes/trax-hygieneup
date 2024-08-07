@@ -97,7 +97,17 @@ export default function Component() {
                 <Review
                   avatarSrc="/placeholder-user.jpg"
                   avatarFallback="CN"
-                  numFilledStars={3}
+                  numFilledStars={4}
+                  rating={4}
+                  reviewText="I love shopping at Acme Grocery Store! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
+                  numHelpful={41}
+                />
+              </Card>
+              <Card className="p-6 rounded-lg shadow-lg">
+                <Review
+                  avatarSrc="/placeholder-user.jpg"
+                  avatarFallback="CN"
+                  numFilledStars={4}
                   rating={4.0}
                   reviewText="I love shopping at Acme Grocery Store! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
                   numHelpful={41}
@@ -107,17 +117,7 @@ export default function Component() {
                 <Review
                   avatarSrc="/placeholder-user.jpg"
                   avatarFallback="CN"
-                  numFilledStars={3}
-                  rating={4.0}
-                  reviewText="I love shopping at Acme Grocery Store! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
-                  numHelpful={41}
-                />
-              </Card>
-              <Card className="p-6 rounded-lg shadow-lg">
-                <Review
-                  avatarSrc="/placeholder-user.jpg"
-                  avatarFallback="CN"
-                  numFilledStars={3}
+                  numFilledStars={4}
                   rating={4.0}
                   reviewText="I love shopping at Acme Grocery Store! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
                   numHelpful={41}
