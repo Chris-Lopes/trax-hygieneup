@@ -111,14 +111,13 @@ const Navbar: React.FC = () => {
         <div className="md:flex-row items-center md:w-2/3 w-full gap-4 md-gap-0 justify-between flex flex-col">
           <div>
             <Link
-              href="#"
+              href="/"
               className="flex items-center gap-2 text-xl font-bold"
               prefetch={false}
             >
-              HygieneUp
+               HygieneUp
             </Link>
           </div>
-
           <div className="relative flex-1 max-w-md ">
             <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input
@@ -142,8 +141,9 @@ const Navbar: React.FC = () => {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Admin</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
+              <DropdownMenuItem>About Us</DropdownMenuItem>
+              <DropdownMenuItem>Contact Us</DropdownMenuItem>
+              <DropdownMenuItem>My Complains</DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Logout</DropdownMenuItem>
             </DropdownMenuContent>
@@ -175,7 +175,7 @@ const Navbar: React.FC = () => {
             {isSignedIn ? (
               <nav className="grid gap-4 p-4">
                 <Link
-                  href="#"
+                  href="/"
                   className="flex items-center gap-2 text-lg font-medium"
                   prefetch={false}
                 >
