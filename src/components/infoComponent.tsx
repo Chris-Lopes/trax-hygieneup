@@ -27,7 +27,7 @@ export default function Component() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('/image.png')`,
+              backgroundImage: `url('/store2.png')`,
               filter: "brightness(0.5)",
             }}
           ></div>

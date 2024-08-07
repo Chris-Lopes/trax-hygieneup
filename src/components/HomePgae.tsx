@@ -14,7 +14,7 @@ export default function Component() {
         <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
             <img
-              src="/placeholder.svg"
+              src="/rest1.jpeg"
               alt="Featured Store"
               width={400}
               height={250}
@@ -44,7 +44,7 @@ export default function Component() {
           </div>
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
             <img
-              src="/placeholder.svg"
+              src="/rest2.jpg"
               alt="Featured Store"
               width={400}
               height={250}
@@ -74,7 +74,7 @@ export default function Component() {
           </div>
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
             <img
-              src="/placeholder.svg"
+              src="/rest3.jpg"
               alt="Featured Store"
               width={400}
               height={250}
@@ -158,7 +158,7 @@ export default function Component() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
               <img
-                src="/placeholder.svg"
+                src="/rest6.jpg"
                 alt="Top Rated Store"
                 width={400}
                 height={250}
@@ -189,7 +189,7 @@ export default function Component() {
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
               <img
-                src="/placeholder.svg"
+                src="/rest7.jpg"
                 alt="Top Rated Store"
                 width={400}
                 height={250}
@@ -220,7 +220,7 @@ export default function Component() {
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
               <img
-                src="/placeholder.svg"
+                src="/rest1.jpg"
                 alt="Top Rated Store"
                 width={400}
                 height={250}

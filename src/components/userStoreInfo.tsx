@@ -46,7 +46,7 @@ export default function UserStoreInfo() {
                   <CarouselContent>
                     <CarouselItem>
                       <Image
-                        src="/image.png"
+                        src="/store2.png"
                         alt="Store Image 1"
                         width={400}
                         height={300}
@@ -55,7 +55,7 @@ export default function UserStoreInfo() {
                     </CarouselItem>
                     <CarouselItem>
                       <Image
-                        src="/image.png"
+                        src="/store3.jpg"
                         alt="Store Image 2"
                         width={400}
                         height={300}
@@ -64,7 +64,7 @@ export default function UserStoreInfo() {
                     </CarouselItem>
                     <CarouselItem>
                       <Image
-                        src="/image.png"
+                        src="/store4.png"
                         alt="Store Image 3"
                         width={400}
                         height={300}
