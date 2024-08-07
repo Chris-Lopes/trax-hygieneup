@@ -5,12 +5,13 @@ import ReviewCard from "./ReviewCard";
 import Footer from "./Footer";
 import { Import } from "lucide-react";
 import Image from "next/image";
+import { SVGProps } from "react";
 
 
 
 
 
-export default function Component() {
+export default async function Component() {
     
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -20,9 +21,14 @@ export default function Component() {
         {/* Featured Stores */}
         <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
+            <img
+              src="/rest1.jpeg"
+=======
             <Image
-              src="/rest2.jpg"
-              alt="Acme Bistro"
+              src="/placeholder.svg"
+>>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
+              alt="Featured Store"
               width={400}
               height={250}
               className="w-full h-48 object-cover"
@@ -50,9 +56,14 @@ export default function Component() {
             </div>
           </div>
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
+            <img
+              src="/rest2.jpg"
+=======
             <Image
-              src="/store4.png"
-              alt="Bakery Delights"
+              src="/placeholder.svg"
+>>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
+              alt="Featured Store"
               width={400}
               height={250}
               className="w-full h-48 object-cover"
@@ -80,9 +91,14 @@ export default function Component() {
             </div>
           </div>
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
+            <img
+              src="/rest3.jpg"
+=======
             <Image
-              src="/rest1.jpeg"
-              alt="Healthy Eats"
+              src="/placeholder.svg"
+>>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
+              alt="Featured Store"
               width={400}
               height={250}
               className="w-full h-48 object-cover"
@@ -166,6 +182,10 @@ export default function Component() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
+              <img
+                src="/rest6.jpg"
+=======
               <Image
                 src="/placeholder.svg"
                 alt="Top Rated Store"
@@ -197,6 +217,10 @@ export default function Component() {
               </div>
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
+              <img
+                src="/rest7.jpg"
+=======
               <Image
                 src="/placeholder.svg"
                 alt="Top Rated Store"
@@ -228,6 +252,10 @@ export default function Component() {
               </div>
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
+              <img
+                src="/rest1.jpg"
+=======
               <Image
                 src="/placeholder.svg"
                 alt="Top Rated Store"
@@ -285,7 +313,7 @@ function StarIcon(props: any) {
   );
 }
 
-function UserIcon(props: string) {
+function UserIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -305,7 +333,7 @@ function UserIcon(props: string) {
   );
 }
 
-function UtensilsIcon(props: string) {
+function UtensilsIcon(props:  SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

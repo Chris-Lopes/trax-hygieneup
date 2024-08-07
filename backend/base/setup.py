@@ -8,7 +8,8 @@ product = 'PRODUCT'
 reviews = 'REVIEWS'
 
 # SQlite connection
-con = sqlite3.connect(os.path.join('backend', 'base', 'data.db'))
+con = sqlite3.connect(os.path.join(
+    'backend', 'base', 'data.db'), check_same_thread=False)
 cur = con.cursor()
 
 

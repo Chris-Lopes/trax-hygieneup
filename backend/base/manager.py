@@ -1,4 +1,4 @@
-import setup
+from base import setup
 
 con, cur = setup.main()
 
@@ -14,7 +14,7 @@ class Base:  # Includes basic utility functions
         return data[0:-1:]
 
     def get_keys(self):
-        return [key for key in self.cursor.description]
+        return [key[0] for key in self.cursor.description]
 
 
 class User(Base):  # User table handler
@@ -101,6 +101,8 @@ class Seller(Base):  # Seller table handler
         data = self.cursor.execute(f'''SELECT * FROM {self.table}
                     WHERE {column_name} = ? ''', (credential,)).fetchall()[0]
         keys = self.get_keys()
+        data = self.merge_map(self.drop_pass(keys), self.drop_pass(data))
+        return data
 
     # Check if phone and email exist
     def validate_not_exist(self, email='', phone=0) -> bool:
@@ -166,7 +168,8 @@ class Products(Base):
         data = self.cursor.execute(
             f'''SELECT * FROM {self.table} WHERE id = ? OR seller_id = ? OR name = ? ''', (id, seller_id, name)).fetchall()
         keys = self.get_keys()
-        data = [self.merge_map(keys, value) for value in data]
+        data = [self.merge_map(self.drop_pass(
+            keys), self.drop_pass(value)) for value in data]
         if (id):
             return data[0]
         else:
