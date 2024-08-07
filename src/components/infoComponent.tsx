@@ -93,74 +93,25 @@ export default function Component() {
               </div>
             </div>
             <div className="grid gap-8">
-              <Card className="p-6 rounded-lg shadow-lg">
-                <div className="flex items-center gap-4">
-                  <Avatar className="w-10 h-10 border">
-                    <AvatarImage src="/placeholder-user.jpg" alt="@shadcn" />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
-                  <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-0.5">
-                      <StarIcon className="w-5 h-5 fill-primary" />
-                      <StarIcon className="w-5 h-5 fill-primary" />
-                      <StarIcon className="w-5 h-5 fill-primary" />
-                      <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
-                      <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      3.2 out of 5
-                    </span>
-                  </div>
-                </div>
-                <div className="mt-4 text-muted-foreground">
-                  <p>
-                    I've been shopping at Acme Grocery Store for years and
-                    they've always had a great selection of fresh produce and
-                    high-quality meats. The staff is friendly and helpful, and
-                    the store is always clean and well-organized.
-                  </p>
-                  <div className="flex items-center gap-2 mt-4">
-                    <ThumbsUpIcon className="w-5 h-5 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">
-                      23 people found this review helpful
-                    </span>
-                  </div>
-                </div>
+            <Card className="p-6 rounded-lg shadow-lg">
+                <Review
+                  avatarSrc="/placeholder-user.jpg"
+                  avatarFallback="CN"
+                  numFilledStars={3}
+                  rating={4.0}
+                  reviewText="I love shopping at Acme Grocery Store! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
+                  numHelpful={41}
+                />
               </Card>
               <Card className="p-6 rounded-lg shadow-lg">
-                <div className="flex items-center gap-4">
-                  <Avatar className="w-10 h-10 border">
-                    <AvatarImage src="/placeholder-user.jpg" alt="@shadcn" />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
-                  <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-0.5">
-                      <StarIcon className="w-5 h-5 fill-primary" />
-                      <StarIcon className="w-5 h-5 fill-primary" />
-                      <StarIcon className="w-5 h-5 fill-primary" />
-                      <StarIcon className="w-5 h-5 fill-primary" />
-                      <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      4.0 out of 5
-                    </span>
-                  </div>
-                </div>
-                <div className="mt-4 text-muted-foreground">
-                  <p>
-                    I love shopping at Acme Grocery Store! The selection of
-                    organic and locally-sourced products is fantastic, and the
-                    prices are very reasonable. The store is always clean and
-                    well-stocked, and the staff is incredibly helpful and
-                    friendly.
-                  </p>
-                  <div className="flex items-center gap-2 mt-4">
-                    <ThumbsUpIcon className="w-5 h-5 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">
-                      41 people found this review helpful
-                    </span>
-                  </div>
-                </div>
+                <Review
+                  avatarSrc="/placeholder-user.jpg"
+                  avatarFallback="CN"
+                  numFilledStars={3}
+                  rating={4.0}
+                  reviewText="I love shopping at Acme Grocery Store! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
+                  numHelpful={41}
+                />
               </Card>
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
