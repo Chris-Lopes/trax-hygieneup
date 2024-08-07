@@ -122,6 +122,7 @@ class Reviews(Base):
         if (self.validate_not_exist(user_id, product_id)):
             self.cursor.execute(f'''INSERT INTO {self.table} ( user_id, product_id, title, description, rating, time) VALUES (?,?,?,?,?,?)''', (
                 user_id, product_id, title, description, rating, time))
+            con.commit()
             return True
         else:
             return False
@@ -154,6 +155,7 @@ class Products(Base):
     def insert(self, seller_id: int, name: str, description: str, product_image: bytes):
         self.cursor.execute(f'''INSERT INTO
                             {self.table} ( seller_id, name ,description, product_image) VALUES (?,?,?,?)''', (seller_id, name, description, product_image))
+        con.commit()
         return True
 
     def get(self, id=0, seller_id=0, name=''):
@@ -165,6 +167,13 @@ class Products(Base):
             return data[0]
         else:
             return data
+
+    def get_all(self):
+        data = self.cursor.execute(
+            f'''SELECT * FROM {self.table} ''').fetchall()
+        keys = self.get_keys()
+        data = [self.merge_map(keys, values) for values in data]
+        return data
 
 
 def insert_seller():
@@ -252,11 +261,10 @@ def insert_product():
     ]
     for i in range(len(products_data)):
         image = ''
-        for j in range(3):
-            with open(os.path.join(path, f'{i}{j}.jpg'), 'rb') as file:
-                image = file.read()
-            product.insert(
-                products_data[i][0], products_data[i][1], products_data[i][2], image)
+        with open(os.path.join(path, f'{i}.jpg'), 'rb') as file:
+            image = file.read()
+        product.insert(
+            products_data[i][0], products_data[i][1], products_data[i][2], image)
 
 
 if __name__ == '__main__':
