@@ -98,7 +98,9 @@ function SearchIcon(props) {
   );
 }
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC = async () => {
+  const response = await fetch("http://127.0.0.1:5000//products/get/id/1");
+  const data = await response.json();
   const [isSignedIn, setIsSiginedIn] = useState(false);
 
   const CheckSignin = () => {
@@ -115,7 +117,7 @@ const Navbar: React.FC = () => {
               className="flex items-center gap-2 text-xl font-bold"
               prefetch={false}
             >
-               HygieneUp
+              HygieneUp
             </Link>
           </div>
           <div className="relative flex-1 max-w-md ">
@@ -182,7 +184,7 @@ const Navbar: React.FC = () => {
                   HygieneUp
                 </Link>
                 <Link
-                  href="#"
+                  href={"https://foscos.fssai.gov.in/consumergrievance/"}
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                   prefetch={false}
                 >

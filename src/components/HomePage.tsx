@@ -1,11 +1,17 @@
 import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
 import Navbar from "./Navbar";
 import ReviewCard from "./ReviewCard";
 import Footer from "./Footer";
+import { Import } from "lucide-react";
+import Image from "next/image";
 
-export default function Component() {
+
+
+
+
+export default async function Component() {
+    
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
@@ -13,7 +19,7 @@ export default function Component() {
         <h2 className="text-2xl font-bold mb-4">Nearby Stores</h2>
         <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-            <img
+            <Image
               src="/placeholder.svg"
               alt="Featured Store"
               width={400}
@@ -43,7 +49,7 @@ export default function Component() {
             </div>
           </div>
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-            <img
+            <Image
               src="/placeholder.svg"
               alt="Featured Store"
               width={400}
@@ -73,7 +79,7 @@ export default function Component() {
             </div>
           </div>
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-            <img
+            <Image
               src="/placeholder.svg"
               alt="Featured Store"
               width={400}
@@ -157,7 +163,7 @@ export default function Component() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-              <img
+              <Image
                 src="/placeholder.svg"
                 alt="Top Rated Store"
                 width={400}
@@ -188,7 +194,7 @@ export default function Component() {
               </div>
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-              <img
+              <Image
                 src="/placeholder.svg"
                 alt="Top Rated Store"
                 width={400}
@@ -219,7 +225,7 @@ export default function Component() {
               </div>
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-              <img
+              <Image
                 src="/placeholder.svg"
                 alt="Top Rated Store"
                 width={400}
