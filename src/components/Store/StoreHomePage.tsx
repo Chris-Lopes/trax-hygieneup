@@ -27,7 +27,6 @@ import {
 import StoreNavbar from "./StoreNavbar";
 import Footer from "../Footer";
 
-
 export default function StoreHomePage() {
   return (
     <>
@@ -122,14 +121,18 @@ export default function StoreHomePage() {
           </section>
         </main>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
 
-function LinechartChart(props) {
+interface LinechartChartProps {
+  className?: string;
+}
+
+function LinechartChart({ className }: LinechartChartProps) {
   return (
-    <div {...props}>
+    <div className={className}>
       <ChartContainer
         config={{
           desktop: {
@@ -139,7 +142,6 @@ function LinechartChart(props) {
         }}
       >
         <LineChart
-          accessibilityLayer
           data={[
             { month: "January", desktop: 186 },
             { month: "February", desktop: 305 },
@@ -178,7 +180,9 @@ function LinechartChart(props) {
   );
 }
 
-function MountainIcon(props) {
+interface IconProps extends React.SVGProps<SVGSVGElement> {}
+
+function MountainIcon(props: IconProps) {
   return (
     <svg
       {...props}
@@ -197,7 +201,7 @@ function MountainIcon(props) {
   );
 }
 
-function StarIcon(props) {
+function StarIcon(props: IconProps) {
   return (
     <svg
       {...props}
@@ -216,7 +220,7 @@ function StarIcon(props) {
   );
 }
 
-function UserIcon(props) {
+function UserIcon(props: IconProps) {
   return (
     <svg
       {...props}
