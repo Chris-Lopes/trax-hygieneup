@@ -99,8 +99,6 @@ function SearchIcon(props) {
 }
 
 const Navbar: React.FC = () => {
-  // const response = await fetch("http://127.0.0.1:5000//products/get/id/1");
-  // const data = await response.json();
   const [isSignedIn, setIsSiginedIn] = useState(false);
 
   const CheckSignin = () => {

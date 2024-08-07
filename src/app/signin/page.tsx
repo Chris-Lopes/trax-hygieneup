@@ -10,31 +10,29 @@ const Page = () => {
     setSignedin(false);
   }
 
-async function handleSignIn(e: any) {
-  e.preventDefault();
+  async function handleSignIn(e: any) {
+    e.preventDefault();
 
-  const email = e.target.email.value;
-  const password = e.target.password.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-  const response = await fetch("http://127.0.0.1:5000/user/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  });
+    const response = await fetch("http://127.0.0.1:5000/user/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-  if (response.ok) {
-    const data = await response.json();
-    console.log(data);
-    // handle successful sign in
-  } else {
-    console.error("Sign in failed");
-    // handle sign in failure
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      // handle successful sign in
+    } else {
+      console.error("Sign in failed");
+      // handle sign in failure
+    }
   }
-}
-
-
 
   return (
     <>
@@ -44,6 +42,20 @@ async function handleSignIn(e: any) {
             Sign In
           </h2>
           <form onSubmit={handleSignIn}>
+            <div className="relative mb-4">
+              <label
+                htmlFor="username"
+                className="leading-7 text-sm text-gray-600"
+              >
+                UserName
+              </label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            </div>
             <div className="relative mb-4">
               <label
                 htmlFor="email"
