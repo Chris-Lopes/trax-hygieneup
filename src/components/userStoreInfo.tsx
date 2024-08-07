@@ -103,7 +103,7 @@ export default function UserStoreInfo() {
                   <StarIcon className="h-6 w-6 fill-muted stroke-muted-foreground" />
                 </div>
                 <div className="text-muted-foreground sm:text-sm">
-                  Based on 1,234 reviews
+                  Based on 14 reviews
                 </div>
               </CardContent>
             </Card>
@@ -112,7 +112,7 @@ export default function UserStoreInfo() {
                 <CardTitle className="sm:text-base">Total Reviews</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col items-center justify-center gap-4">
-                <div className="text-6xl font-bold sm:text-4xl">1,234</div>
+                <div className="text-6xl font-bold sm:text-4xl">15</div>
                 <div className="text-muted-foreground sm:text-sm">Reviews</div>
               </CardContent>
               <CardContent className="flex items-center justify-center">
@@ -147,12 +147,12 @@ function LinechartChart(props) {
         <LineChart
           accessibilityLayer
           data={[
-            { month: "January", desktop: 186 },
-            { month: "February", desktop: 305 },
-            { month: "March", desktop: 237 },
-            { month: "April", desktop: 73 },
-            { month: "May", desktop: 209 },
-            { month: "June", desktop: 214 },
+            { month: "January", desktop: 3 },
+            { month: "February", desktop: 1 },
+            { month: "March", desktop: 4 },
+            { month: "April", desktop: 5 },
+            { month: "May", desktop: 5 },
+            { month: "June", desktop: 1 },
           ]}
           margin={{
             left: 12,

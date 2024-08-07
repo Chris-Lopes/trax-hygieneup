@@ -125,7 +125,8 @@ export default function Component() {
               </Card>
             </div>
             <div className="flex justify-end mt-6">
-              <Button variant="outline">View more</Button>
+              <Link href={"/reviews"}>    <Button variant="outline">View more</Button></Link>
+          
             </div>
           </div>
         </section>
