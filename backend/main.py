@@ -28,6 +28,7 @@ def get_user_id(id):
     else:
         return False
     
+
 @app.route('/user/get/<email>')
 def get_user_email(email):
     data = user.get(column_name=user.email, credential=email)
@@ -167,7 +168,6 @@ def user_create():
     else:
         response = make_response('Failed!', 400)
         return response
-
 
 if __name__ == '__main__':
     app.run(debug=True)
