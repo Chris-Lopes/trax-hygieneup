@@ -34,7 +34,7 @@ export default function Component() {
                 Italian cuisine and a cozy ambiance.
               </p>
               <div className="mt-4">
-              <Link href={"/store-info"}>
+                <Link href={"/store-info"}>
                   <Button variant="outline" size="sm">
                     View Details
                   </Button>
@@ -64,7 +64,7 @@ export default function Component() {
                 freshly baked breads, pastries, and desserts.
               </p>
               <div className="mt-4">
-              <Link href={"/store-info"}>
+                <Link href={"/store-info"}>
                   <Button variant="outline" size="sm">
                     View Details
                   </Button>
@@ -95,11 +95,9 @@ export default function Component() {
               </p>
               <div className="mt-4">
                 <Link href={"/store-info"}>
-      
                   <Button variant="outline" size="sm">
                     View Details
                   </Button>
-                
                 </Link>
               </div>
             </div>
@@ -108,13 +106,6 @@ export default function Component() {
         <section className="container mx-auto mt-12">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold">Recent Reviews</h2>
-            <Link
-              href="#"
-              className="text-primary hover:underline"
-              prefetch={false}
-            >
-              View All
-            </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
             <ReviewCard
@@ -163,13 +154,6 @@ export default function Component() {
         <section className="container mx-auto mt-12">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold">Top Rated</h2>
-            <Link
-              href="#"
-              className="text-primary hover:underline"
-              prefetch={false}
-            >
-              View All
-            </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
@@ -195,11 +179,11 @@ export default function Component() {
                   locally sourced, seasonal ingredients.
                 </p>
                 <div className="mt-4">
-                <Link href={"/store-info"}>
-                  <Button variant="outline" size="sm">
-                    View Details
-                  </Button>
-                </Link>
+                  <Link href={"/store-info"}>
+                    <Button variant="outline" size="sm">
+                      View Details
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -226,11 +210,11 @@ export default function Component() {
                   the finest ingredients.
                 </p>
                 <div className="mt-4">
-                <Link href={"/store-info"}>
-                  <Button variant="outline" size="sm">
-                    View Details
-                  </Button>
-                </Link>
+                  <Link href={"/store-info"}>
+                    <Button variant="outline" size="sm">
+                      View Details
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -257,11 +241,11 @@ export default function Component() {
                   food products.
                 </p>
                 <div className="mt-4">
-                <Link href={"/store-info"}>
-                  <Button variant="outline" size="sm">
-                    View Details
-                  </Button>
-                </Link>
+                  <Link href={"/store-info"}>
+                    <Button variant="outline" size="sm">
+                      View Details
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
