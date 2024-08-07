@@ -5,12 +5,13 @@ import ReviewCard from "./ReviewCard";
 import Footer from "./Footer";
 import { Import } from "lucide-react";
 import Image from "next/image";
+import { SVGProps } from "react";
 
 
 
 
 
-export default async function Component() {
+export default  function Component() {
     
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -19,13 +20,10 @@ export default async function Component() {
         <h2 className="text-2xl font-bold mb-4">Nearby Stores</h2>
         <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-<<<<<<< HEAD:src/components/HomePgae.tsx
             <img
-              src="/rest1.jpeg"
-=======
+              src="/rest1.jpeg"></img>
             <Image
               src="/placeholder.svg"
->>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
               alt="Featured Store"
               width={400}
               height={250}
@@ -54,13 +52,10 @@ export default async function Component() {
             </div>
           </div>
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-<<<<<<< HEAD:src/components/HomePgae.tsx
             <img
-              src="/rest2.jpg"
-=======
+              src="/rest2.jpg"></img>
             <Image
               src="/placeholder.svg"
->>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
               alt="Featured Store"
               width={400}
               height={250}
@@ -89,13 +84,10 @@ export default async function Component() {
             </div>
           </div>
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-<<<<<<< HEAD:src/components/HomePgae.tsx
             <img
-              src="/rest3.jpg"
-=======
+              src="/rest3.jpg"></img>
             <Image
               src="/placeholder.svg"
->>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
               alt="Featured Store"
               width={400}
               height={250}
@@ -178,13 +170,10 @@ export default async function Component() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-<<<<<<< HEAD:src/components/HomePgae.tsx
               <img
-                src="/rest6.jpg"
-=======
+                src="/rest6.jpg"></img>
               <Image
                 src="/placeholder.svg"
->>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
                 alt="Top Rated Store"
                 width={400}
                 height={250}
@@ -214,13 +203,10 @@ export default async function Component() {
               </div>
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-<<<<<<< HEAD:src/components/HomePgae.tsx
               <img
-                src="/rest7.jpg"
-=======
+                src="/rest7.jpg"></img>
               <Image
                 src="/placeholder.svg"
->>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
                 alt="Top Rated Store"
                 width={400}
                 height={250}
@@ -250,13 +236,10 @@ export default async function Component() {
               </div>
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
-<<<<<<< HEAD:src/components/HomePgae.tsx
               <img
-                src="/rest1.jpg"
-=======
+                src="/rest1.jpg"></img>
               <Image
                 src="/placeholder.svg"
->>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
                 alt="Top Rated Store"
                 width={400}
                 height={250}
@@ -312,7 +295,7 @@ function StarIcon(props: any) {
   );
 }
 
-function UserIcon(props: string) {
+function UserIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -332,7 +315,7 @@ function UserIcon(props: string) {
   );
 }
 
-function UtensilsIcon(props: string) {
+function UtensilsIcon(props:  SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
