@@ -192,7 +192,7 @@ def insert():
 @app.route('/user/create', methods=['POST'])
 def user_create():
     email = request.form.get('email')
-    name = request.form.get('name').title()
+    name = request.form.get('name')
     password = request.form.get('password')
     description = request.form.get('description')
     phone = request.form.get('phone')
@@ -200,13 +200,12 @@ def user_create():
     status = user.insert(name, description, email, phone, password)
 
     if status:
-        response = make_response('Success!', 200)
+        response = make_response(jsonify('Success!'), 200)
         print(make_response)
         return response
 
     else:
-        response = make_response('Failed!', 400)
-        return response
+        return failed
 
 
 if __name__ == '__main__':
