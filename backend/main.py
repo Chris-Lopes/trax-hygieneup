@@ -31,11 +31,6 @@ def get_user_id(id):
         return jsonify(data)
     else:
         return False
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666
 
 @app.route('/user/get/<email>')
 def get_user_email(email):
