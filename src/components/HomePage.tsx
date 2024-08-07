@@ -11,19 +11,23 @@ import { SVGProps } from "react";
 
 
 
-export default  function Component() {
+export default async function Component() {
     
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
       <main className="flex-1 py-8 px-6 md:px-8">
-        <h2 className="text-2xl font-bold mb-4">Nearby Stores</h2>
+        <h2 className="text-2xl font-bold mb-4">Featured Stores</h2>
+        {/* Featured Stores */}
         <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
             <img
-              src="/rest1.jpeg"></img>
+              src="/rest1.jpeg"
+=======
             <Image
               src="/placeholder.svg"
+>>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
               alt="Featured Store"
               width={400}
               height={250}
@@ -52,10 +56,13 @@ export default  function Component() {
             </div>
           </div>
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
             <img
-              src="/rest2.jpg"></img>
+              src="/rest2.jpg"
+=======
             <Image
               src="/placeholder.svg"
+>>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
               alt="Featured Store"
               width={400}
               height={250}
@@ -84,10 +91,13 @@ export default  function Component() {
             </div>
           </div>
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
             <img
-              src="/rest3.jpg"></img>
+              src="/rest3.jpg"
+=======
             <Image
               src="/placeholder.svg"
+>>>>>>> 6426c07cc3bcc2ad5d8acfcdcce863219a13e666:src/components/HomePage.tsx
               alt="Featured Store"
               width={400}
               height={250}
@@ -116,6 +126,7 @@ export default  function Component() {
             </div>
           </div>
         </section>
+        {/* Recent Reviews */}
         <section className="container mx-auto mt-12">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold">Recent Reviews</h2>
@@ -128,18 +139,18 @@ export default  function Component() {
               username="John Doe"
               time="2 weeks ago"
             >
-              I recently visited Bakery Delights and was blown away by the
-              quality and variety of their baked goods. The croissants were
-              flaky and buttery, and the cakes were moist and flavorful. The
-              staff was friendly and knowledgeable, and the overall experience
-              was fantastic. I'll definitely be a regular customer.
+              I recently visited Acme Bistro and was blown away by the quality
+              and variety of their baked goods. The croissants were flaky and
+              buttery, and the cakes were moist and flavorful. The staff was
+              friendly and knowledgeable, and the overall experience was
+              fantastic. I'll definitely be a regular customer.
             </ReviewCard>
 
             <ReviewCard
               numFilledStars={5}
               avatarSrc="/placeholder-user-2.jpg"
-              avatarFallback="JD"
-              username="John Doe"
+              avatarFallback="RN"
+              username="Rhys Nunes"
               time="2 weeks ago"
             >
               I recently visited Bakery Delights and was blown away by the
@@ -156,22 +167,25 @@ export default  function Component() {
               username="Reniyas"
               time="2 weeks ago"
             >
-              I recently visited Bakery Delights and was blown away by the
-              quality and variety of their baked goods. The croissants were
-              flaky and buttery, and the cakes were moist and flavorful. The
-              staff was friendly and knowledgeable, and the overall experience
-              was fantastic. I'll definitely be a regular customer.
+              I recently visited Healthy Eats and was blown away by the quality
+              and variety of their baked goods. The croissants were flaky and
+              buttery, and the cakes were moist and flavorful. The staff was
+              friendly and knowledgeable, and the overall experience was
+              fantastic. I'll definitely be a regular customer.
             </ReviewCard>
           </div>
         </section>
+        {/* Top Rated Stores */}
         <section className="container mx-auto mt-12">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-bold">Top Rated</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
               <img
-                src="/rest6.jpg"></img>
+                src="/rest6.jpg"
+=======
               <Image
                 src="/placeholder.svg"
                 alt="Top Rated Store"
@@ -203,8 +217,10 @@ export default  function Component() {
               </div>
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
               <img
-                src="/rest7.jpg"></img>
+                src="/rest7.jpg"
+=======
               <Image
                 src="/placeholder.svg"
                 alt="Top Rated Store"
@@ -236,8 +252,10 @@ export default  function Component() {
               </div>
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
+<<<<<<< HEAD:src/components/HomePgae.tsx
               <img
-                src="/rest1.jpg"></img>
+                src="/rest1.jpg"
+=======
               <Image
                 src="/placeholder.svg"
                 alt="Top Rated Store"
