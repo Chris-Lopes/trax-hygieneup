@@ -1,6 +1,8 @@
 from flask import Flask, request, make_response, jsonify
 from base import manager
 
+# Run this main.py after cd into trax-hygineneup and not backend
+
 app = Flask(__name__)
 user = manager.User()
 seller = manager.Seller()
