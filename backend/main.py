@@ -1,9 +1,11 @@
 from base import manager
 from flask import Flask, jsonify, make_response, request
+from flask_cors import CORS
 
 # Run this main.py after cd into trax-hygineneup and not backend
 
 app = Flask(__name__)
+CORS(app, resources={r'/*': {'origins': "*"}})
 user = manager.User()
 seller = manager.Seller()
 review = manager.Reviews()
@@ -24,17 +26,6 @@ def user_login():
         return jsonify(data)
     else:
         return failed
-
-
-@app.route('/user/create', methods=['POST'])
-def user_create():
-    name = request.form.get('name')
-    description = request.form.get('description')
-    email = request.form.get('email')
-    phone = request.form.get('phone')
-    password = request.form.get('password')
-
-    user.insert(name, description, email, phone, password)
 
 
 @app.route('/user/get/id/<int:id>')
@@ -76,7 +67,11 @@ def seller_login():
     else:
         return failed
 
-# Seller Name
+
+@app.route('/seller/create')
+def seller_create():
+    pass
+    # Seller Name
 
 
 @app.route('/seller/get/name/<name>')
