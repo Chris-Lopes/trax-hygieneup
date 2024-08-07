@@ -8,9 +8,8 @@ review = manager.Reviews()
 product = manager.Products()
 
 # User Details
-@app.route('/user/login')
+@app.route('/user/login', methods=['GET'])
 def login():
-    request.method = 'GET'
     email = request.form.get('email')
     password = request.form.get('password')
     data = user.login(email=email, password=password)
@@ -112,13 +111,42 @@ def get_review_id(id):
     else:
         return False
     
-@app.route('/products/get/seller_id/<int: seller_id>')
+@app.route('/products/get/id/<int: id>')
 def get_products_id(id):
     data = product.get(id=id)
     if (data):
         return jsonify(data)
     else:
         return False
+    
+@app.route('/products/get/seller_id/<int: seller_id>')
+def get_products_seller_id(seller_id):
+    data = product.get(seller_id=seller_id)
+    if (data):
+        return jsonify(data)
+    else:
+        return False
+    
+@app.route('/products/get/name/<name>')
+def get_products_name(name):
+    data = product.get(name=name)
+    if (data):
+        return jsonify(data)
+    else:
+        return False
+
+@app.route('/products/insert', methods=['GET'])
+def insert():
+    seller_id = request.form.get('seller_id')
+    name = request.form.get('name')
+    description = request.form.get('description')
+    product_image = request.form.get('product_image')
+    data = product.insert(seller_id=seller_id, name=name, description=description, product_image=product_image)
+    print(data)
+    if (data):
+        return jsonify(data)
+    else:
+        return False, 400
 
     
 @app.route('/user/create', methods=['POST'])
