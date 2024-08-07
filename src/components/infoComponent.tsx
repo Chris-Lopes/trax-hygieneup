@@ -69,9 +69,11 @@ export default function Component() {
               <Link href={"store-know-more"}>
                 <Button size="lg">Know more</Button>
               </Link>
-              <Button size="lg" variant="outline" className="ml-4">
-                File a complaint
-              </Button>
+              <Link href={"http://surl.li/itpacw"}>
+                <Button size="lg" variant="outline" className="ml-4">
+                  File a complaint
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -93,7 +95,7 @@ export default function Component() {
               </div>
             </div>
             <div className="grid gap-8">
-            <Card className="p-6 rounded-lg shadow-lg">
+              <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
                   avatarFallback="CN"
@@ -125,8 +127,10 @@ export default function Component() {
               </Card>
             </div>
             <div className="flex justify-end mt-6">
-              <Link href={"/reviews"}>    <Button variant="outline">View more</Button></Link>
-          
+              <Link href={"/reviews"}>
+                {" "}
+                <Button variant="outline">View more</Button>
+              </Link>
             </div>
           </div>
         </section>

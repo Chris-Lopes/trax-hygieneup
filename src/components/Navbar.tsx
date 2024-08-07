@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
               className="flex items-center gap-2 text-xl font-bold"
               prefetch={false}
             >
-               HygieneUp
+              HygieneUp
             </Link>
           </div>
           <div className="relative flex-1 max-w-md ">
@@ -182,7 +182,7 @@ const Navbar: React.FC = () => {
                   HygieneUp
                 </Link>
                 <Link
-                  href="#"
+                  href={"https://foscos.fssai.gov.in/consumergrievance/"}
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                   prefetch={false}
                 >

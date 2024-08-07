@@ -1,14 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
+import { ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -26,8 +19,9 @@ import {
 } from "@/components/ui/chart";
 import StoreNavbar from "./StoreNavbar";
 import Footer from "../Footer";
+import Image from "next/image";
 
-export default function StoreHomePage() {
+export default function UserStoreInfo() {
   return (
     <>
       <StoreNavbar />
@@ -36,10 +30,11 @@ export default function StoreHomePage() {
           <section className="mb-8">
             <div className="flex flex-col items-center gap-4 rounded-lg bg-background p-6 shadow-lg md:flex-row md:items-start md:gap-8">
               <div className="flex-1">
-                <h1 className="text-2xl font-bold sm:text-xl">
-                  Acme Food Store
+                <h1 className="text-2xl flex font-bold sm:text-xl">
+                  Acme Food Store{" "}
+                  <ShieldCheck className="ml-2 text-black" size={25} />
                 </h1>
-                <p className="text-muted-foreground sm:text-sm">
+                <p className="text-muted-foreground sm:text-sm pt-4">
                   Acme Grocery Store has been a fixture in the community for
                   over 50 years. We pride ourselves on providing high-quality,
                   fresh produce, meats, and pantry items at reasonable prices.
@@ -51,8 +46,8 @@ export default function StoreHomePage() {
                 <Carousel className="w-full max-w-md md:w-auto">
                   <CarouselContent>
                     <CarouselItem>
-                      <img
-                        src="/placeholder.svg"
+                      <Image
+                        src="/image.png"
                         alt="Store Image 1"
                         width={400}
                         height={300}
@@ -60,8 +55,8 @@ export default function StoreHomePage() {
                       />
                     </CarouselItem>
                     <CarouselItem>
-                      <img
-                        src="/placeholder.svg"
+                      <Image
+                        src="/image.png"
                         alt="Store Image 2"
                         width={400}
                         height={300}
@@ -69,8 +64,8 @@ export default function StoreHomePage() {
                       />
                     </CarouselItem>
                     <CarouselItem>
-                      <img
-                        src="/placeholder.svg"
+                      <Image
+                        src="/image.png"
                         alt="Store Image 3"
                         width={400}
                         height={300}
@@ -109,7 +104,7 @@ export default function StoreHomePage() {
                   <StarIcon className="h-6 w-6 fill-muted stroke-muted-foreground" />
                 </div>
                 <div className="text-muted-foreground sm:text-sm">
-                  Based on 1,234 reviews
+                  Based on 14 reviews
                 </div>
               </CardContent>
             </Card>
@@ -118,8 +113,17 @@ export default function StoreHomePage() {
                 <CardTitle className="sm:text-base">Total Reviews</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col items-center justify-center gap-4">
-                <div className="text-6xl font-bold sm:text-4xl">1,234</div>
+                <div className="text-6xl font-bold sm:text-4xl">15</div>
                 <div className="text-muted-foreground sm:text-sm">Reviews</div>
+              </CardContent>
+              <CardContent className="flex items-center justify-center">
+                <Link
+                  href="reviews"
+                  className="text-primary hover:underline"
+                  prefetch={false}
+                >
+                  View All
+                </Link>
               </CardContent>
             </Card>
           </section>
@@ -130,13 +134,9 @@ export default function StoreHomePage() {
   );
 }
 
-interface LinechartChartProps {
-  className?: string;
-}
-
-function LinechartChart({ className }: LinechartChartProps) {
+function LinechartChart(props) {
   return (
-    <div className={className}>
+    <div {...props}>
       <ChartContainer
         config={{
           desktop: {
@@ -146,13 +146,14 @@ function LinechartChart({ className }: LinechartChartProps) {
         }}
       >
         <LineChart
+          accessibilityLayer
           data={[
-            { month: "January", desktop: 186 },
-            { month: "February", desktop: 305 },
-            { month: "March", desktop: 237 },
-            { month: "April", desktop: 73 },
-            { month: "May", desktop: 209 },
-            { month: "June", desktop: 214 },
+            { month: "January", desktop: 3 },
+            { month: "February", desktop: 1 },
+            { month: "March", desktop: 4 },
+            { month: "April", desktop: 5 },
+            { month: "May", desktop: 5 },
+            { month: "June", desktop: 1 },
           ]}
           margin={{
             left: 12,
@@ -184,9 +185,7 @@ function LinechartChart({ className }: LinechartChartProps) {
   );
 }
 
-interface IconProps extends React.SVGProps<SVGSVGElement> {}
-
-function MountainIcon(props: IconProps) {
+function MountainIcon(props) {
   return (
     <svg
       {...props}
@@ -205,7 +204,7 @@ function MountainIcon(props: IconProps) {
   );
 }
 
-function StarIcon(props: IconProps) {
+function StarIcon(props) {
   return (
     <svg
       {...props}
@@ -224,7 +223,7 @@ function StarIcon(props: IconProps) {
   );
 }
 
-function UserIcon(props: IconProps) {
+function UserIcon(props) {
   return (
     <svg
       {...props}
