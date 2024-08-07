@@ -9,7 +9,7 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { Card } from "@/components/ui/card";
+ import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 import Navbar from "./Navbar";
