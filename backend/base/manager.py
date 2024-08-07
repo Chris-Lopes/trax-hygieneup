@@ -187,15 +187,15 @@ def insert_seller():    # Function to create database values not to be used for 
     seller = Seller()
     data = [
         ['Alice Smith', 'A health inspector', 123456789,
-            'alice@example.com', 9876543210, b'securepassword1'],
+            'alice@example.com', 9876543210, 'securepassword1'],
         ['Bob Johnson', 'Restaurant owner', 987654321,
-            'bob@example.com', 8765432109, b'securepassword2'],
+            'bob@example.com', 8765432109, 'securepassword2'],
         ['Charlie Brown', 'Food supplier', 456123789,
-            'charlie@example.com', 7654321098, b'securepassword3'],
+            'charlie@example.com', 7654321098, 'securepassword3'],
         ['Diana Ross', 'Catering service', 789456123,
-            'diana@example.com', 6543210987, b'securepassword4'],
+            'diana@example.com', 6543210987, 'securepassword4'],
         ['Eve Davis', 'Dietitian', 321654987,
-            'eve@example.com', 5432109876, b'securepassword5']
+            'eve@example.com', 5432109876, 'securepassword5']
     ]
     for person in data:
         seller.insert(person[0], person[1], person[2],
@@ -205,14 +205,14 @@ def insert_seller():    # Function to create database values not to be used for 
 def insert_user():  # Function to create database values not to be used for production
     user = User()
     data = [
-        ['John Doe', 'Customer', 'john@example.com', 1234567890, b'userpassword1'],
+        ['John Doe', 'Customer', 'john@example.com', 1234567890, 'userpassword1'],
         ['Jane Smith', 'Blog Writer', 'jane@example.com',
-            2345678901, b'userpassword2'],
-        ['Sam Wilson', 'Subscriber', 'sam@example.com', 3456789012, b'userpassword3'],
+            2345678901, 'userpassword2'],
+        ['Sam Wilson', 'Subscriber', 'sam@example.com', 3456789012, 'userpassword3'],
         ['Lucy Liu', 'Forum Moderator', 'lucy@example.com',
-            4567890123, b'userpassword4'],
+            4567890123, 'userpassword4'],
         ['Mike Johnson', 'Community Member',
-            'mike@example.com', 5678901234, b'userpassword5']
+            'mike@example.com', 5678901234, 'userpassword5']
     ]
 
     for person in data:

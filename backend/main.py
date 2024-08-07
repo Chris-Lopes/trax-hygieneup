@@ -26,6 +26,17 @@ def user_login():
         return failed
 
 
+@app.route('/user/create', methods=['POST'])
+def user_create():
+    name = request.form.get('name')
+    description = request.form.get('description')
+    email = request.form.get('email')
+    phone = request.form.get('phone')
+    password = request.form.get('password')
+
+    user.insert(name, description, email, phone, password)
+
+
 @app.route('/user/get/id/<int:id>')
 def get_user_id(id):
     data = user.get(column_name=user.id, credential=id)

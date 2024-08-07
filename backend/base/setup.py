@@ -22,7 +22,7 @@ def main():
                 fssai INTEGER,
                 email TEXT,
                 phone INTEGER,
-                password BLOB
+                password TEXT
                 )'''
                 )
     cur.execute(f'''CREATE TABLE IF NOT EXISTS {user} (
@@ -31,7 +31,7 @@ def main():
                 description TEXT,
                 email TEXT,
                 phone INTEGER,
-                password BLOB
+                password TEXT
                 )'''
                 )
     cur.execute(f'''CREATE TABLE IF NOT EXISTS {reviews} (
