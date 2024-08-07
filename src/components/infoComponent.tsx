@@ -16,11 +16,12 @@ import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Review from "./ReviewCardMain";
 
 export default function Component() {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <div className="flex flex-col w-full">
         <section className="relative py-12 md:py-24">
           <div
@@ -162,38 +163,14 @@ export default function Component() {
                 </div>
               </Card>
               <Card className="p-6 rounded-lg shadow-lg">
-                <div className="flex items-center gap-4">
-                  <Avatar className="w-10 h-10 border">
-                    <AvatarImage src="/placeholder-user.jpg" alt="@shadcn" />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
-                  <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-0.5">
-                      <StarIcon className="w-5 h-5 fill-primary" />
-                      <StarIcon className="w-5 h-5 fill-primary" />
-                      <StarIcon className="w-5 h-5 fill-primary" />
-                      <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
-                      <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      3.0 out of 5
-                    </span>
-                  </div>
-                </div>
-                <div className="mt-4 text-muted-foreground">
-                  <p>
-                    The selection at Acme Grocery Store is decent, but I've
-                    found that the prices are a bit higher than some of the
-                    other stores in the area. The staff is friendly, but they
-                    don't always seem to have the best product knowledge.
-                  </p>
-                  <div className="flex items-center gap-2 mt-4">
-                    <ThumbsUpIcon className="w-5 h-5 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">
-                      12 people found this review helpful
-                    </span>
-                  </div>
-                </div>
+                <Review
+                  avatarSrc="/placeholder-user.jpg"
+                  avatarFallback="CN"
+                  numFilledStars={3}
+                  rating={4.0}
+                  reviewText="I love shopping at Acme Grocery Store! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
+                  numHelpful={41}
+                />
               </Card>
             </div>
             <div className="flex justify-end mt-6">
@@ -262,7 +239,7 @@ export default function Component() {
           </div>
         </section>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
