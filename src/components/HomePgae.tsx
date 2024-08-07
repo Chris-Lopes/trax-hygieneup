@@ -35,9 +35,11 @@ export default function Component() {
                 Italian cuisine and a cozy ambiance.
               </p>
               <div className="mt-4">
-                <Button variant="outline" size="sm">
-                  View Details
-                </Button>
+              <Link href={"/store-info"}>
+                  <Button variant="outline" size="sm">
+                    View Details
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -63,9 +65,11 @@ export default function Component() {
                 freshly baked breads, pastries, and desserts.
               </p>
               <div className="mt-4">
-                <Button variant="outline" size="sm">
-                  View Details
-                </Button>
+              <Link href={"/store-info"}>
+                  <Button variant="outline" size="sm">
+                    View Details
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -92,9 +96,11 @@ export default function Component() {
               </p>
               <div className="mt-4">
                 <Link href={"/store-info"}>
+      
                   <Button variant="outline" size="sm">
                     View Details
                   </Button>
+                
                 </Link>
               </div>
             </div>
@@ -190,9 +196,11 @@ export default function Component() {
                   locally sourced, seasonal ingredients.
                 </p>
                 <div className="mt-4">
+                <Link href={"/store-info"}>
                   <Button variant="outline" size="sm">
                     View Details
                   </Button>
+                </Link>
                 </div>
               </div>
             </div>
@@ -219,9 +227,11 @@ export default function Component() {
                   the finest ingredients.
                 </p>
                 <div className="mt-4">
+                <Link href={"/store-info"}>
                   <Button variant="outline" size="sm">
                     View Details
                   </Button>
+                </Link>
                 </div>
               </div>
             </div>
@@ -248,9 +258,11 @@ export default function Component() {
                   food products.
                 </p>
                 <div className="mt-4">
+                <Link href={"/store-info"}>
                   <Button variant="outline" size="sm">
                     View Details
                   </Button>
+                </Link>
                 </div>
               </div>
             </div>
