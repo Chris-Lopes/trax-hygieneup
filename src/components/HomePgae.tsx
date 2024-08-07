@@ -11,6 +11,7 @@ export default function Component() {
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
       <main className="flex-1 py-8 px-6 md:px-8">
+        <h2 className="text-2xl font-bold mb-4">Nearby Stores</h2>
         <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
             <img
@@ -90,9 +91,11 @@ export default function Component() {
                 variety of nutritious and delicious meals.
               </p>
               <div className="mt-4">
-                <Button variant="outline" size="sm">
-                  View Details
-                </Button>
+                <Link href={"/store-info"}>
+                  <Button variant="outline" size="sm">
+                    View Details
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -254,7 +257,7 @@ export default function Component() {
           </div>
         </section>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

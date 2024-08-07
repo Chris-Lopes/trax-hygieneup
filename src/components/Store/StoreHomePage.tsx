@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import {
@@ -24,11 +24,14 @@ import {
   ChartTooltip,
   ChartContainer,
 } from "@/components/ui/chart";
+import Navbar from "../Navbar";
 
 export default function StoreHomePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-muted/40">
-      <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+    <>
+      {/* <Navbar /> */}
+      <div className="flex min-h-screen flex-col bg-muted/40">
+        {/* <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
         <Link href="#" className="flex items-center gap-2" prefetch={false}>
           <MountainIcon className="h-6 w-6" />
           <span className="text-lg font-semibold">Foodie Reviews</span>
@@ -75,90 +78,97 @@ export default function StoreHomePage() {
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>
-      </header>
-      <main className="flex-1 p-4 sm:p-6 md:p-8">
-        <section className="mb-8">
-          <div className="flex flex-col items-center gap-4 rounded-lg bg-background p-6 shadow-sm md:flex-row md:items-start md:gap-8">
-            <div className="flex-1">
-              <h1 className="text-2xl font-bold sm:text-xl">Acme Food Store</h1>
-              <p className="text-muted-foreground sm:text-sm">
-                Discover the best local food reviews and ratings.
-              </p>
+      </header> */}
+        <main className="flex-1 p-4 sm:p-6 md:p-8">
+          <section className="mb-8">
+            <div className="flex flex-col items-center gap-4 rounded-lg bg-background p-6 shadow-sm md:flex-row md:items-start md:gap-8">
+              <div className="flex-1">
+                <h1 className="text-2xl font-bold sm:text-xl">
+                  Acme Food Store
+                </h1>
+                <p className="text-muted-foreground sm:text-sm">
+                  Discover the best local food reviews and ratings.
+                </p>
+              </div>
+              <div className="lg:mr-10">
+                <Carousel className="w-full max-w-md md:w-auto">
+                  <CarouselContent>
+                    <CarouselItem>
+                      <img
+                        src="/placeholder.svg"
+                        alt="Store Image 1"
+                        width={400}
+                        height={300}
+                        className="aspect-video w-full rounded-lg object-cover"
+                      />
+                    </CarouselItem>
+                    <CarouselItem>
+                      <img
+                        src="/placeholder.svg"
+                        alt="Store Image 2"
+                        width={400}
+                        height={300}
+                        className="aspect-video w-full rounded-lg object-cover"
+                      />
+                    </CarouselItem>
+                    <CarouselItem>
+                      <img
+                        src="/placeholder.svg"
+                        alt="Store Image 3"
+                        width={400}
+                        height={300}
+                        className="aspect-video w-full rounded-lg object-cover"
+                      />
+                    </CarouselItem>
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
+              </div>
             </div>
-            <Carousel className="w-full max-w-md md:w-auto">
-              <CarouselContent>
-                <CarouselItem>
-                  <img
-                    src="/placeholder.svg"
-                    alt="Store Image 1"
-                    width={400}
-                    height={300}
-                    className="aspect-video w-full rounded-lg object-cover"
-                  />
-                </CarouselItem>
-                <CarouselItem>
-                  <img
-                    src="/placeholder.svg"
-                    alt="Store Image 2"
-                    width={400}
-                    height={300}
-                    className="aspect-video w-full rounded-lg object-cover"
-                  />
-                </CarouselItem>
-                <CarouselItem>
-                  <img
-                    src="/placeholder.svg"
-                    alt="Store Image 3"
-                    width={400}
-                    height={300}
-                    className="aspect-video w-full rounded-lg object-cover"
-                  />
-                </CarouselItem>
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          </div>
-        </section>
-        <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
-            <CardHeader>
-              <CardTitle className="sm:text-base">Reviews Over Time</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <LinechartChart className="aspect-[9/4]" />
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle className="sm:text-base">Overall Rating</CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col items-center justify-center gap-4">
-              <div className="text-6xl font-bold sm:text-4xl">4.8</div>
-              <div className="flex items-center gap-1">
-                <StarIcon className="h-6 w-6 fill-primary" />
-                <StarIcon className="h-6 w-6 fill-primary" />
-                <StarIcon className="h-6 w-6 fill-primary" />
-                <StarIcon className="h-6 w-6 fill-primary" />
-                <StarIcon className="h-6 w-6 fill-muted stroke-muted-foreground" />
-              </div>
-              <div className="text-muted-foreground sm:text-sm">
-                Based on 1,234 reviews
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle className="sm:text-base">Total Reviews</CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col items-center justify-center gap-4">
-              <div className="text-6xl font-bold sm:text-4xl">1,234</div>
-              <div className="text-muted-foreground sm:text-sm">Reviews</div>
-            </CardContent>
-          </Card>
-        </section>
-      </main>
-    </div>
+          </section>
+          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <CardTitle className="sm:text-base">
+                  Reviews Over Time
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <LinechartChart className="aspect-[9/4]" />
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="sm:text-base">Overall Rating</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col items-center justify-center gap-4">
+                <div className="text-6xl font-bold sm:text-4xl">4.8</div>
+                <div className="flex items-center gap-1">
+                  <StarIcon className="h-6 w-6 fill-primary" />
+                  <StarIcon className="h-6 w-6 fill-primary" />
+                  <StarIcon className="h-6 w-6 fill-primary" />
+                  <StarIcon className="h-6 w-6 fill-primary" />
+                  <StarIcon className="h-6 w-6 fill-muted stroke-muted-foreground" />
+                </div>
+                <div className="text-muted-foreground sm:text-sm">
+                  Based on 1,234 reviews
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="sm:text-base">Total Reviews</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col items-center justify-center gap-4">
+                <div className="text-6xl font-bold sm:text-4xl">1,234</div>
+                <div className="text-muted-foreground sm:text-sm">Reviews</div>
+              </CardContent>
+            </Card>
+          </section>
+        </main>
+      </div>
+    </>
   );
 }
 
@@ -168,8 +178,8 @@ function LinechartChart(props) {
       <ChartContainer
         config={{
           desktop: {
-            label: "Desktop",
-            color: "hsl(var(--chart-1))",
+            label: "Reviews",
+            color: "black",
           },
         }}
       >

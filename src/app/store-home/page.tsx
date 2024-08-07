@@ -1,4 +1,4 @@
-import StoreHomePage from "@/components/StoreHomePage";
+import StoreHomePage from "@/components/Store/StoreHomePage";
 import React from "react";
 
 const page = () => {
