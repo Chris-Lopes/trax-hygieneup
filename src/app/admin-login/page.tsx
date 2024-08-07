@@ -1,38 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 const Page = () => {
-  const [error, setError] = useState(null);
-
-  async function handleSignIn(e: any) {
+  function handleSignIn(e: any) {
     e.preventDefault();
 
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-
-    try {
-      const response = await fetch("http://127.0.0.1:5000/user/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log("User created successfully:", data);
-        return JSON.stringify(data);
-      } else {
-        const errorData = await response.json();
-        console.error("Failed to create user:", errorData);
-        setError(errorData.message);
-      }
-    } catch (error) {
-      console.error("Error creating user:", error);
-      setError("An error occurred while creating the user");
-    }
   }
 
   return (
@@ -42,7 +14,6 @@ const Page = () => {
           <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
             Sign In
           </h2>
-          {error && <p className="text-red-500 mb-4">{error}</p>}
           <form onSubmit={handleSignIn} method="POST">
             <div className="relative mb-4">
               <label htmlFor="name" className="leading-7 text-sm text-gray-600">
