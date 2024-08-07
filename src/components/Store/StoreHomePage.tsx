@@ -24,64 +24,18 @@ import {
   ChartTooltip,
   ChartContainer,
 } from "@/components/ui/chart";
-import Navbar from "../Navbar";
+import StoreNavbar from "./StoreNavbar";
+import Footer from "../Footer";
+
 
 export default function StoreHomePage() {
   return (
     <>
-      {/* <Navbar /> */}
+      <StoreNavbar />
       <div className="flex min-h-screen flex-col bg-muted/40">
-        {/* <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
-        <Link href="#" className="flex items-center gap-2" prefetch={false}>
-          <MountainIcon className="h-6 w-6" />
-          <span className="text-lg font-semibold">Foodie Reviews</span>
-        </Link>
-        <nav className="ml-auto flex items-center gap-4 sm:flex-row sm:items-center">
-          <Link
-            href="#"
-            className="text-sm font-medium hover:underline"
-            prefetch={false}
-          >
-            Home
-          </Link>
-          <div className="flex items-center gap-4 sm:flex-row">
-            <Link
-              href="#"
-              className="text-sm font-medium hover:underline"
-              prefetch={false}
-            >
-              My Items
-            </Link>
-            <Link
-              href="#"
-              className="text-sm font-medium hover:underline"
-              prefetch={false}
-            >
-              Contact
-            </Link>
-          </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="overflow-hidden rounded-full"
-              >
-                <UserIcon className="h-5 w-5" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Admin</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </nav>
-      </header> */}
         <main className="flex-1 p-4 sm:p-6 md:p-8">
           <section className="mb-8">
-            <div className="flex flex-col items-center gap-4 rounded-lg bg-background p-6 shadow-sm md:flex-row md:items-start md:gap-8">
+            <div className="flex flex-col items-center gap-4 rounded-lg bg-background p-6 shadow-lg md:flex-row md:items-start md:gap-8">
               <div className="flex-1">
                 <h1 className="text-2xl font-bold sm:text-xl">
                   Acme Food Store
@@ -128,7 +82,7 @@ export default function StoreHomePage() {
             </div>
           </section>
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <Card>
+            <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle className="sm:text-base">
                   Reviews Over Time
@@ -138,7 +92,7 @@ export default function StoreHomePage() {
                 <LinechartChart className="aspect-[9/4]" />
               </CardContent>
             </Card>
-            <Card>
+            <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle className="sm:text-base">Overall Rating</CardTitle>
               </CardHeader>
@@ -156,7 +110,7 @@ export default function StoreHomePage() {
                 </div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle className="sm:text-base">Total Reviews</CardTitle>
               </CardHeader>
@@ -168,6 +122,7 @@ export default function StoreHomePage() {
           </section>
         </main>
       </div>
+      <Footer/>
     </>
   );
 }
