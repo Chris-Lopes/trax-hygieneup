@@ -31,10 +31,10 @@ export default function UserStoreInfo() {
             <div className="flex flex-col items-center gap-4 rounded-lg bg-background p-6 shadow-lg md:flex-row md:items-start md:gap-8">
               <div className="flex-1">
                 <h1 className="text-2xl flex font-bold sm:text-xl">
-                  Acme Food Store  <ShieldCheck className= "ml-2 text-black" size={25}/>
+                  Acme Bistro  <ShieldCheck className= "ml-2 text-black" size={25}/>
                 </h1>
                 <p className="text-muted-foreground sm:text-sm pt-4">
-                  Acme Grocery Store has been a fixture in the community for
+                  Acme Bistro has been a fixture in the community for
                   over 50 years. We pride ourselves on providing high-quality,
                   fresh produce, meats, and pantry items at reasonable prices.
                   Our knowledgeable staff is always on hand to help you find

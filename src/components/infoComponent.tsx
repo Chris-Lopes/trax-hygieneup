@@ -115,19 +115,17 @@ export default function Component() {
           <div className="relative container mx-auto px-4 md:px-6 max-w-5xl grid md:grid-cols-2 gap-8 justify-center items-center">
             <div className="flex items-center gap-4">
               <div>
-                <h1 className="text-3xl font-bold text-white">
-                  Acme Grocery Store
-                </h1>
+                <h1 className="text-3xl font-bold text-white">Acme Bistro</h1>
                 <p className="text-white">
-                  Your one-stop shop for all your grocery needs. Fresh produce,
-                  quality meats, and a wide selection of pantry items.
+                  Your one-stop shop for all you need. Fresh produce, quality
+                  meats, and a wide selection of pantry items.
                 </p>
                 <div className="flex items-center gap-4 mt-4">
                   <div className="flex items-center gap-0.5">
-                    <StarIcon className="w-5 h-5 fill-primary" />
-                    <StarIcon className="w-5 h-5 fill-primary" />
-                    <StarIcon className="w-5 h-5 fill-primary" />
-                    <StarIcon className="w-5 h-5 fill-primary" />
+                    <StarIcon className="w-5 h-5 fill-muted text-white" />
+                    <StarIcon className="w-5 h-5 fill-muted text-white" />
+                    <StarIcon className="w-5 h-5 fill-muted text-white" />
+                    <StarIcon className="w-5 h-5 fill-muted  text-white" />
                     <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
                   </div>
                   <span className="text-sm text-white">4.2 out of 5</span>
@@ -182,7 +180,7 @@ export default function Component() {
                   avatarFallback="CN"
                   numFilledStars={4}
                   rating={4}
-                  reviewText="I love shopping at Acme Grocery Store! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
+                  reviewText="I love shopping at Acme Bistro! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
                   numHelpful={41}
                 />
               </Card>
@@ -192,7 +190,7 @@ export default function Component() {
                   avatarFallback="CN"
                   numFilledStars={4}
                   rating={4}
-                  reviewText="I love shopping at Acme Grocery Store! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
+                  reviewText="I love shopping at Acme Bistro! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
                   numHelpful={41}
                 />
               </Card>
@@ -202,7 +200,7 @@ export default function Component() {
                   avatarFallback="CN"
                   numFilledStars={4}
                   rating={4}
-                  reviewText="I love shopping at Acme Grocery Store! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
+                  reviewText="I love shopping at Acme Bistro! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
                   numHelpful={41}
                 />
               </Card>

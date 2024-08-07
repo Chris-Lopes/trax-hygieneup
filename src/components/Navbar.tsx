@@ -131,7 +131,11 @@ const Navbar: React.FC = () => {
         {isSignedIn ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full text-black">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full text-black"
+              >
                 <Avatar className="w-8 h-8">
                   <AvatarImage src="/placeholder-user.jpg" alt="Avatar" />
                   <AvatarFallback>AC</AvatarFallback>
@@ -141,11 +145,16 @@ const Navbar: React.FC = () => {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Admin</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>About Us</DropdownMenuItem>
-              <DropdownMenuItem>Contact Us</DropdownMenuItem>
-              <DropdownMenuItem>My Complains</DropdownMenuItem>
+              <Link href={"#footer"}>
+                <DropdownMenuItem>Contact Us</DropdownMenuItem>
+              </Link>
+              <Link href={"https://foscos.fssai.gov.in/consumergrievance/"}>
+                <DropdownMenuItem>My Complains</DropdownMenuItem>
+              </Link>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setIsSiginedIn(false)}>
+                Logout
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         ) : (
@@ -189,7 +198,7 @@ const Navbar: React.FC = () => {
                   My Complains
                 </Link>
                 <Link
-                  href="#"
+                  href="#footer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                   prefetch={false}
                 >
@@ -199,28 +208,28 @@ const Navbar: React.FC = () => {
             ) : (
               <nav className="grid gap-4 p-4">
                 <Link
-                  href="#"
+                  href="/"
                   className="flex items-center gap-2 text-lg font-medium"
                   prefetch={false}
                 >
                   HygieneUp
                 </Link>
                 <Link
-                  href="#"
+                  href="/signin"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                   prefetch={false}
                 >
                   Sign in
                 </Link>
                 <Link
-                  href="#"
+                  href="/signup"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                   prefetch={false}
                 >
                   Sign up
                 </Link>
                 <Link
-                  href="#"
+                  href="#footer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                   prefetch={false}
                 >

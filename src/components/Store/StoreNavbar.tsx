@@ -101,7 +101,7 @@ const StoreNavbar: React.FC = () => {
     <header className="bg-primary text-primary-foreground py-4 px-6 md:px-8">
       <div className="container mx-auto flex items-center justify-between">
         <Link
-          href="/"
+          href="/store-home"
           className="flex items-center gap-2 text-3xl font-bold"
           prefetch={false}
         >
