@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Navbar from "./Navbar";
 import ReviewCard from "./ReviewCard";
 import Footer from "./Footer";

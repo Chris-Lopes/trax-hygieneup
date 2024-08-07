@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 
 type IconProps = React.SVGProps<SVGSVGElement>;
@@ -22,7 +23,7 @@ function StarIcon(props: IconProps) {
   );
 }
 
-function ThumbsUpIcon(props) {
+function ThumbsUpIcon(props: IconProps) {
     return (
         <svg
             {...props}
@@ -59,6 +60,18 @@ const Review: React.FC<ReviewProps> = ({
   reviewText,
   numHelpful,
 }) => {
+  const [helpfulCount, setHelpfulCount] = useState(numHelpful);
+  const [hasClicked, setHasClicked] = useState(false);
+
+  const handleThumbsUpClick = () => {
+    if (hasClicked) {
+      setHelpfulCount(helpfulCount - 1);
+    } else {
+      setHelpfulCount(helpfulCount + 1);
+    }
+    setHasClicked(!hasClicked);
+  };
+
   return (
     <div>
       <div className="flex items-center gap-4">
@@ -87,9 +100,15 @@ const Review: React.FC<ReviewProps> = ({
       <div className="mt-4 text-muted-foreground">
         <p>{reviewText}</p>
         <div className="flex items-center gap-2 mt-4">
-          <ThumbsUpIcon className="w-5 h-5 text-muted-foreground" />
+          <button onClick={handleThumbsUpClick}>
+            <ThumbsUpIcon
+              className={`w-5 h-5 ${
+                hasClicked ? "fill-primary text-primary" : "text-muted-foreground"
+              }`}
+            />
+          </button>
           <span className="text-sm text-muted-foreground">
-            {numHelpful} people found this review helpful
+            {helpfulCount} people found this review helpful
           </span>
         </div>
       </div>
