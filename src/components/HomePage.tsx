@@ -167,8 +167,8 @@ export default function Component() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
               <Image
-                src="/placeholder.svg"
-                alt="Top Rated Store"
+                src="/rest7.jpg"
+                alt="Gourmet Delights"
                 width={400}
                 height={250}
                 className="w-full h-48 object-cover"
@@ -198,8 +198,8 @@ export default function Component() {
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
               <Image
-                src="/placeholder.svg"
-                alt="Top Rated Store"
+                src="/bakery.jpg"
+                alt="Artisan Bakery"
                 width={400}
                 height={250}
                 className="w-full h-48 object-cover"
@@ -229,8 +229,8 @@ export default function Component() {
             </div>
             <div className="bg-card rounded-lg shadow-lg overflow-hidden">
               <Image
-                src="/placeholder.svg"
-                alt="Top Rated Store"
+                src="/rest1.jpg"
+                alt="Organic Oasis"
                 width={400}
                 height={250}
                 className="w-full h-48 object-cover"

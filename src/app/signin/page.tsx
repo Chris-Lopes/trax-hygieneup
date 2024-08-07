@@ -22,6 +22,7 @@ const Page = () => {
     if (response.ok) {
       const data = await response.json();
       console.log(data);
+      return data
       // handle successful sign in
     } else {
       console.error("Sign in failed");
