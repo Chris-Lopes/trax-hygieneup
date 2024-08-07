@@ -20,6 +20,7 @@ import {
 import StoreNavbar from "./StoreNavbar";
 import Footer from "../Footer";
 import Image from "next/image";
+import { SVGProps } from "react";
 
 export default function UserStoreInfo() {
   return (
@@ -134,7 +135,7 @@ export default function UserStoreInfo() {
   );
 }
 
-function LinechartChart(props) {
+function LinechartChart(props: any) {
   return (
     <div {...props}>
       <ChartContainer
@@ -185,7 +186,7 @@ function LinechartChart(props) {
   );
 }
 
-function MountainIcon(props) {
+function MountainIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -204,7 +205,7 @@ function MountainIcon(props) {
   );
 }
 
-function StarIcon(props) {
+function StarIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -223,7 +224,7 @@ function StarIcon(props) {
   );
 }
 
-function UserIcon(props) {
+function UserIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

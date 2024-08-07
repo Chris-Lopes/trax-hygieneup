@@ -3,7 +3,7 @@ import setup
 con, cur = setup.main()
 
 
-class Base:
+class Base:  # Includes basic utility functions
     def __init__(self) -> None:
         self.cursor = con.cursor()
 
@@ -17,7 +17,7 @@ class Base:
         return [key for key in self.cursor.description]
 
 
-class User(Base):
+class User(Base):  # User table handler
     id = 'id'
     name = 'name'
     description = 'description'
@@ -28,6 +28,7 @@ class User(Base):
         super().__init__()
         self.table = setup.user
 
+    # Inserts only if phone or email doesn't exist in table
     def insert(self, name: str, description: str, email: str, phone: int, password: str):
         if (self.validate_not_exist(email=email, phone=phone)):
             self.cursor.execute(f'''INSERT INTO {self.table} (name, description, email, phone, password) VALUES (?,?,?,?,?)''', (
@@ -54,6 +55,7 @@ class User(Base):
         keys = self.get_keys()
         return self.merge_map(self.drop_pass(keys), self.drop_pass(data))
 
+    # Checks if phone and email are not in table
     def validate_not_exist(self, email='', phone=0) -> bool:
         if (self.cursor.execute(f'''SELECT * FROM {self.table}
                     WHERE email = ? OR phone = ?''', (email, phone)).fetchall()):
@@ -61,7 +63,7 @@ class User(Base):
         return True
 
 
-class Seller(Base):
+class Seller(Base):  # Seller table handler
     id = 'id'
     name = 'name'
     description = 'description'
@@ -74,6 +76,7 @@ class Seller(Base):
         super().__init__()
         self.table = setup.seller
 
+    # Creates seller if email and phone doesn't exist
     def insert(self, name: str, description: str, fssai: str, email: str, phone: int, password: str):
         if (self.validate_not_exist(email=email, phone=phone)):
             self.cursor.execute(f'''INSERT INTO {self.table} (name, description, fssai, email, phone, password) VALUES (?,?,?,?,?,?)''', (
@@ -99,6 +102,7 @@ class Seller(Base):
                     WHERE {column_name} = ? ''', (credential,)).fetchall()[0]
         keys = self.get_keys()
 
+    # Check if phone and email exist
     def validate_not_exist(self, email='', phone=0) -> bool:
         if (self.cursor.execute(f'''SELECT * FROM {self.table}
                     WHERE email = ? OR phone = ?''', (email, phone)).fetchall()):
@@ -122,6 +126,7 @@ class Reviews(Base):
         if (self.validate_not_exist(user_id, product_id)):
             self.cursor.execute(f'''INSERT INTO {self.table} ( user_id, product_id, title, description, rating, time) VALUES (?,?,?,?,?,?)''', (
                 user_id, product_id, title, description, rating, time))
+            con.commit()
             return True
         else:
             return False
@@ -154,6 +159,7 @@ class Products(Base):
     def insert(self, seller_id: int, name: str, description: str, product_image: bytes):
         self.cursor.execute(f'''INSERT INTO
                             {self.table} ( seller_id, name ,description, product_image) VALUES (?,?,?,?)''', (seller_id, name, description, product_image))
+        con.commit()
         return True
 
     def get(self, id=0, seller_id=0, name=''):
@@ -166,8 +172,15 @@ class Products(Base):
         else:
             return data
 
+    def get_all(self):
+        data = self.cursor.execute(
+            f'''SELECT * FROM {self.table} ''').fetchall()
+        keys = self.get_keys()
+        data = [self.merge_map(keys, values) for values in data]
+        return data
 
-def insert_seller():
+
+def insert_seller():    # Function to create database values not to be used for production
     seller = Seller()
     data = [
         ['Alice Smith', 'A health inspector', 123456789,
@@ -186,7 +199,7 @@ def insert_seller():
                       person[3], person[4], person[5])
 
 
-def insert_user():
+def insert_user():  # Function to create database values not to be used for production
     user = User()
     data = [
         ['John Doe', 'Customer', 'john@example.com', 1234567890, b'userpassword1'],
@@ -203,7 +216,7 @@ def insert_user():
         user.insert(person[0], person[1], person[2], person[3], person[4])
 
 
-def insert_product():
+def insert_product():  # Function to create database values not to be used for production
     import os
 
     product = Products()
@@ -252,11 +265,10 @@ def insert_product():
     ]
     for i in range(len(products_data)):
         image = ''
-        for j in range(3):
-            with open(os.path.join(path, f'{i}{j}.jpg'), 'rb') as file:
-                image = file.read()
-            product.insert(
-                products_data[i][0], products_data[i][1], products_data[i][2], image)
+        with open(os.path.join(path, f'{i}.jpg'), 'rb') as file:
+            image = file.read()
+        product.insert(
+            products_data[i][0], products_data[i][1], products_data[i][2], image)
 
 
 if __name__ == '__main__':

@@ -13,7 +13,7 @@ cur = con.cursor()
 
 
 def main():
-    # Creating tables
+    # Creating tables if they don't exist
     cur.execute(f'''CREATE TABLE IF NOT EXISTS {seller} (
                 id INTEGER PRIMARY KEY,
                 name TEXT,
