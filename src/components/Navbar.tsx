@@ -175,7 +175,7 @@ const Navbar: React.FC = () => {
             {isSignedIn ? (
               <nav className="grid gap-4 p-4">
                 <Link
-                  href="#"
+                  href="/"
                   className="flex items-center gap-2 text-lg font-medium"
                   prefetch={false}
                 >

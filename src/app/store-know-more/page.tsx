@@ -1,10 +1,9 @@
-import StoreHomePage from "@/components/Store/StoreHomePage";
-import React from "react";
+import UserStoreInfo from "@/components/userStoreInfo";
 
 const page = () => {
   return (
     <div>
-      <StoreHomePage />
+      <UserStoreInfo/>
     </div>
   );
 };

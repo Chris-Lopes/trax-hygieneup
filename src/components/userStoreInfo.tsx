@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ShieldCheck } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -24,23 +25,23 @@ import {
   ChartTooltip,
   ChartContainer,
 } from "@/components/ui/chart";
-import StoreNavbar from "./StoreNavbar";
-import Footer from "../Footer";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import Image from "next/image";
 
-
-export default function StoreHomePage() {
+export default function UserStoreInfo() {
   return (
     <>
-      <StoreNavbar />
+      <Navbar />
       <div className="flex min-h-screen flex-col bg-muted/40">
         <main className="flex-1 p-4 sm:p-6 md:p-8">
           <section className="mb-8">
             <div className="flex flex-col items-center gap-4 rounded-lg bg-background p-6 shadow-lg md:flex-row md:items-start md:gap-8">
               <div className="flex-1">
-                <h1 className="text-2xl font-bold sm:text-xl">
-                  Acme Food Store
+                <h1 className="text-2xl flex font-bold sm:text-xl">
+                  Acme Food Store  <ShieldCheck className= "ml-2 text-black" size={25}/>
                 </h1>
-                <p className="text-muted-foreground sm:text-sm">
+                <p className="text-muted-foreground sm:text-sm pt-4">
                   Acme Grocery Store has been a fixture in the community for
                   over 50 years. We pride ourselves on providing high-quality,
                   fresh produce, meats, and pantry items at reasonable prices.
@@ -52,8 +53,8 @@ export default function StoreHomePage() {
                 <Carousel className="w-full max-w-md md:w-auto">
                   <CarouselContent>
                     <CarouselItem>
-                      <img
-                        src="/placeholder.svg"
+                      <Image
+                        src="/image.png"
                         alt="Store Image 1"
                         width={400}
                         height={300}
@@ -61,8 +62,8 @@ export default function StoreHomePage() {
                       />
                     </CarouselItem>
                     <CarouselItem>
-                      <img
-                        src="/placeholder.svg"
+                      <Image
+                        src="/image.png"
                         alt="Store Image 2"
                         width={400}
                         height={300}
@@ -70,8 +71,8 @@ export default function StoreHomePage() {
                       />
                     </CarouselItem>
                     <CarouselItem>
-                      <img
-                        src="/placeholder.svg"
+                      <Image
+                        src="/image.png"
                         alt="Store Image 3"
                         width={400}
                         height={300}
@@ -121,6 +122,15 @@ export default function StoreHomePage() {
               <CardContent className="flex flex-col items-center justify-center gap-4">
                 <div className="text-6xl font-bold sm:text-4xl">1,234</div>
                 <div className="text-muted-foreground sm:text-sm">Reviews</div>
+              </CardContent>
+              <CardContent className="flex items-center justify-center">
+                <Link
+                  href="reviews"
+                  className="text-primary hover:underline"
+                  prefetch={false}
+                >
+                  View All
+                </Link>
               </CardContent>
             </Card>
           </section>
