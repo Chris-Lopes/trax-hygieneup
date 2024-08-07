@@ -98,9 +98,9 @@ function SearchIcon(props) {
   );
 }
 
-const Navbar: React.FC = async () => {
-  const response = await fetch("http://127.0.0.1:5000//products/get/id/1");
-  const data = await response.json();
+const Navbar: React.FC = () => {
+  // const response = await fetch("http://127.0.0.1:5000//products/get/id/1");
+  // const data = await response.json();
   const [isSignedIn, setIsSiginedIn] = useState(false);
 
   const CheckSignin = () => {
@@ -133,7 +133,7 @@ const Navbar: React.FC = async () => {
         {isSignedIn ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full">
+              <Button variant="ghost" size="icon" className="rounded-full text-black">
                 <Avatar className="w-8 h-8">
                   <AvatarImage src="/placeholder-user.jpg" alt="Avatar" />
                   <AvatarFallback>AC</AvatarFallback>
