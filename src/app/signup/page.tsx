@@ -2,8 +2,11 @@
 import { Switch } from "@/components/ui/switch";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
+  const router = useRouter();
+
   const [isSignedin, setSignedin] = useState(true);
   const [error, setError] = useState(null);
 
@@ -113,14 +116,14 @@ const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
                 className="w-full bg-white rounded border border-gray-300 focus:border-black focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
-            
+
             <button
+              onClick={() => router.push("/")}
               type="submit"
               className="text-white w-full mt-3 bg-black border-0 py-2 px-8 focus:outline-none hover:bg-slate-600 rounded text-lg"
-              >
+            >
               Submit
             </button>
-             
           </form>
         </div>
       </div>

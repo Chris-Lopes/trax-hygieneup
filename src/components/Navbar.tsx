@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
     useEffect(() => {
       const fetchUserData = async () => {
         try {
-          const response = await fetch("http://127.0.0.1:5000/user/get/id/1", {
+          const response = await fetch("http://127.0.0.1:5000/user/get/id/0", {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
