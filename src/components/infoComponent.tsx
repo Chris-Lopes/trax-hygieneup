@@ -264,13 +264,13 @@ export default function Component() {
                   <Review
                     avatarSrc="/placeholder-user.jpg"
                     avatarFallback="CH"
-                    numFilledStars={userData[0].rating}
-                    rating={userData[0].rating}
-                    reviewText={ userData[0].description}
+                    numFilledStars={userData.rating}
+                    rating={userData.rating}
+                    reviewText={ userData.description}
                     numHelpful={18}
                   />
                 </Card>
-              )}
+               )} 
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
