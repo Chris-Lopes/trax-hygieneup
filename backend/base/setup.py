@@ -8,12 +8,13 @@ product = 'PRODUCT'
 reviews = 'REVIEWS'
 
 # SQlite connection
-con = sqlite3.connect(os.path.join('backend', 'base', 'data.db'))
+con = sqlite3.connect(os.path.join(
+    'backend', 'base', 'data.db'), check_same_thread=False)
 cur = con.cursor()
 
 
 def main():
-    # Creating tables
+    # Creating tables if they don't exist
     cur.execute(f'''CREATE TABLE IF NOT EXISTS {seller} (
                 id INTEGER PRIMARY KEY,
                 name TEXT,
@@ -21,7 +22,7 @@ def main():
                 fssai INTEGER,
                 email TEXT,
                 phone INTEGER,
-                password BLOB
+                password TEXT
                 )'''
                 )
     cur.execute(f'''CREATE TABLE IF NOT EXISTS {user} (
@@ -30,7 +31,7 @@ def main():
                 description TEXT,
                 email TEXT,
                 phone INTEGER,
-                password BLOB
+                password TEXT
                 )'''
                 )
     cur.execute(f'''CREATE TABLE IF NOT EXISTS {reviews} (

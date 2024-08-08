@@ -17,7 +17,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 
 type IconProps = React.SVGProps<SVGSVGElement>;
 
-function MenuIcon(props) {
+function MenuIcon(props: IconProps) {
   return (
     <svg
       {...props}
@@ -38,7 +38,7 @@ function MenuIcon(props) {
   );
 }
 
-function UserIcon(props) {
+function UserIcon(props: IconProps) {
   return (
     <svg
       {...props}
@@ -58,7 +58,7 @@ function UserIcon(props) {
   );
 }
 
-function PlusIcon(props) {
+function PlusIcon(props: IconProps) {
   return (
     <svg
       {...props}
@@ -78,7 +78,7 @@ function PlusIcon(props) {
   );
 }
 
-function SearchIcon(props) {
+function SearchIcon(props: IconProps) {
   return (
     <svg
       {...props}
@@ -98,18 +98,16 @@ function SearchIcon(props) {
   );
 }
 
-const Navbar: React.FC = async () => {
-  const response = await fetch("http://127.0.0.1:5000//products/get/id/1");
-  const data = await response.json();
-  const [isSignedIn, setIsSiginedIn] = useState(false);
+const Navbar: React.FC = () => {
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
-  const CheckSignin = () => {
-    setIsSiginedIn(true);
+  const checkSignin = () => {
+    setIsSignedIn(true);
   };
 
   return (
     <header className="bg-primary text-primary-foreground py-4 px-6 md:px-8">
-      <div className=" container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between">
         <div className="md:flex-row items-center md:w-2/3 w-full gap-4 md-gap-0 justify-between flex flex-col">
           <div>
             <Link
@@ -133,7 +131,11 @@ const Navbar: React.FC = async () => {
         {isSignedIn ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full text-black"
+              >
                 <Avatar className="w-8 h-8">
                   <AvatarImage src="/placeholder-user.jpg" alt="Avatar" />
                   <AvatarFallback>AC</AvatarFallback>
@@ -143,22 +145,29 @@ const Navbar: React.FC = async () => {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Admin</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>About Us</DropdownMenuItem>
-              <DropdownMenuItem>Contact Us</DropdownMenuItem>
-              <DropdownMenuItem>My Complains</DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="#footer">Contact Us</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="https://foscos.fssai.gov.in/consumergrievance/"
+                  target="_blamk" rel="noopener noreferrer"
+                >
+                  My Complaints
+                </Link>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setIsSignedIn(false)}>
+                Logout
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         ) : (
           <div className="items-center gap-4 hidden md:block">
-            <Link href={"/signin"}>
-              <Button variant="ghost" onClick={CheckSignin}>
-                <UserIcon className="w-5 h-5 mr-2 " />
-                {isSignedIn ? "name" : "Sign in"}
-              </Button>
-            </Link>
-            <Link href={"/signup"}>
+            <Button variant="ghost" onClick={checkSignin}>
+              <UserIcon className="w-5 h-5 mr-2 " />
+              Sign in
+            </Button>
+            <Link href="/signup" passHref>
               <Button variant="ghost">
                 <PlusIcon className="w-5 h-5 mr-2" />
                 Sign Up
@@ -184,45 +193,50 @@ const Navbar: React.FC = async () => {
                   HygieneUp
                 </Link>
                 <Link
-                  href={"https://foscos.fssai.gov.in/consumergrievance/"}
+                  href="https://foscos.fssai.gov.in/consumergrievance/"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                   prefetch={false}
                 >
-                  My Complains
+                  My Complaints
                 </Link>
                 <Link
-                  href="#"
+                  href="#footer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                   prefetch={false}
                 >
                   Contact
                 </Link>
+                <button
+                  onClick={() => setIsSignedIn(false)}
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+                >
+                  Log Out
+                </button>
               </nav>
             ) : (
               <nav className="grid gap-4 p-4">
                 <Link
-                  href="#"
+                  href="/"
                   className="flex items-center gap-2 text-lg font-medium"
                   prefetch={false}
                 >
                   HygieneUp
                 </Link>
-                <Link
-                  href="#"
+                <button
+                  onClick={checkSignin}
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
-                  prefetch={false}
                 >
                   Sign in
-                </Link>
+                </button>
                 <Link
-                  href="#"
+                  href="/signup"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                   prefetch={false}
                 >
                   Sign up
                 </Link>
                 <Link
-                  href="#"
+                  href="#footer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                   prefetch={false}
                 >

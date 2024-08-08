@@ -1,18 +1,21 @@
 import http.client
 import json
 
+import keys
+
 # Signzy api
 # https://docs.signzy.com/api-marketplace/fssai
 
 conn = http.client.HTTPSConnection("api-preproduction.signzy.app")
 
 headers = {
-    'Authorization': '',
+    # Set fssai api key in keys.py in variable fssai_api
+    'Authorization': f'{keys.fssai_api}',
     'Content-Type': 'application/json'
 }
 
 
-def fssai_certifited(number):
+def fssai_certifited(number):  # Function that validates is fssai number is valid
     payload = json.dumps({
         "licenseNumber": str(number),
         "getCategorizedProductList": "true"

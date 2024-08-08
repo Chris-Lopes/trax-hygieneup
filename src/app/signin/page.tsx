@@ -1,18 +1,38 @@
 "use client";
-import { Switch } from "@/components/ui/switch";
 import Link from "next/link";
 import React, { useState } from "react";
 
 const Page = () => {
-  const [isSignedin, setSignedin] = useState(true);
+  const [error, setError] = useState(null);
 
-  function checkIfSignedin() {
-    setSignedin(false);
-  }
+  async function handleSignIn(e: any) {
+    e.preventDefault();
 
-  function handleSignIn(e: any) {
-    e.preventdefault();
-    
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    try {
+      const response = await fetch("http://127.0.0.1:5000/user/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("User created successfully:", data);
+        return JSON.stringify(data);
+      } else {
+        const errorData = await response.json();
+        console.error("Failed to create user:", errorData);
+        setError(errorData.message);
+      }
+    } catch (error) {
+      console.error("Error creating user:", error);
+    }
   }
 
   return (
@@ -20,9 +40,10 @@ const Page = () => {
       <div className="flex justify-center items-center mx-auto min-w-[100vw] h-screen">
         <div className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col mt-10 md:mt-0">
           <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
-            Sign In
+            HygieneUp | Sign In
           </h2>
-          <form onSubmit={handleSignIn}>
+          {error && <p className="text-red-500 mb-4">{error}</p>}
+          <form onSubmit={handleSignIn} method="POST">
             <div className="relative mb-4">
               <label
                 htmlFor="email"
