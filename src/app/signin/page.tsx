@@ -5,35 +5,45 @@ import React, { useState } from "react";
 const Page = () => {
   const [error, setError] = useState(null);
 
-  async function handleSignIn(e: any) {
-    e.preventDefault();
+ const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
+   e.preventDefault();
 
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
 
-    try {
-      const response = await fetch("http://127.0.0.1:5000/user/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, password }),
-      });
+   const email = (e.target as any).email.value;
+   const password = (e.target as any).password.value;
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log("User created successfully:", data);
-        return JSON.stringify(data);
-      } else {
-        const errorData = await response.json();
-        console.error("Failed to create user:", errorData);
-        setError(errorData.message);
-      }
-    } catch (error) {
-      console.error("Error creating user:", error);
-    }
-  }
+   const userData = {
+     email: email,
+     password: password,
+   };
+
+   console.log(userData);
+
+   try {
+     const response = await fetch("http://127.0.0.1:5000/user/login", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify(userData),
+     });
+
+     if (response.ok) {
+       const data = await response.json();
+       console.log("User created successfully:", data);
+       return JSON.stringify(data);
+     } else {
+       const errorData = await response.json();
+       console.error("Failed to create user:", errorData);
+       // Handle error by setting error state or displaying error message
+       // setError(errorData.message);
+     }
+   } catch (error) {
+     console.error("Error creating user:", error);
+     // Handle error by setting error state or displaying error message
+     // setError("An error occurred while creating the user.");
+   }
+ };
 
   return (
     <>
