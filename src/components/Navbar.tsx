@@ -98,20 +98,15 @@ function SearchIcon(props: IconProps) {
   );
 }
 
-
-
-
 const Navbar: React.FC = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
-  const [userData, setUserData] = useState < any>({
-    name: "",
-    email: "",
-  });
+  const userEmail: string = "";
+  const userName: string = "";
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/user/get/id/2", {
+        const response = await fetch("http://127.0.0.1:5000/user/get/id/1", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -119,14 +114,12 @@ const Navbar: React.FC = () => {
         });
 
         if (response.ok) {
-          const data = await response.json();
+          const { ...data } = await response.json();
           console.log("Fetched user data successfully:", data);
 
           // Update userData array with the fetched data
-          setUserData({
-            name: data.name,
-            email: data.email,
-          });
+          // userEmail = data.email;
+          // userName = data.name;
           setIsSignedIn(true);
         } else {
           const errorData = await response.json();
@@ -139,8 +132,8 @@ const Navbar: React.FC = () => {
       }
     };
     fetchUserData();
-    console.log(userData.name);
-    
+
+    console.log(userName);
   }, []);
 
   return (
@@ -153,7 +146,7 @@ const Navbar: React.FC = () => {
               className="flex items-center gap-2 text-xl font-bold"
               prefetch={false}
             >
-              HygieneUp {userData.name}
+              HygieneUp
             </Link>
           </div>
           <div className="relative flex-1 max-w-md ">
@@ -184,7 +177,7 @@ const Navbar: React.FC = () => {
               <DropdownMenuLabel>Admin</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link href="#footer">{userData.user.name}</Link>
+                <Link href="#footer">Contact</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link
