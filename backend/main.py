@@ -84,11 +84,12 @@ def seller_login():
         return failed
 
 
-@app.route('/seller/create')
+@app.route('/seller/create', methods=['POST'])
 def seller_create():
     data = request.get_json()
-    if (data is dict):
-        seller.insert(data['name'], data['cuisine'])
+    seller.insert(data.get('name'), data.get('cuisine'), data.get(
+        'fssai'), data.get('email'), data.get('phone'), data.get('password'))
+    return jsonify('Success!')
 
 
 @app.route('/seller/get/name/<name>')
@@ -133,12 +134,9 @@ def get_seller_id(id):
 @app.route('/review/create', methods=['POST'])
 def review_create():
     data = request.get_json()
-    if (data is dict):
-        review.insert(data['user_id'], data['product_id'], data['title'],
-                      data['description'], data['rating'], data['time'])
-        return jsonify('Success!')
-    else:
-        return failed
+    review.insert(data['user_id'], data['product_id'], data['title'],
+                  data['description'], data['rating'], data['time'])
+    return jsonify('Success!')
 
 
 @app.route('/review/get/user_id/<int:user_id>')
