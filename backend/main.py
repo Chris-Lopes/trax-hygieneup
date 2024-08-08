@@ -16,6 +16,10 @@ with app.app_context():
     failed = make_response(jsonify({'status': 'Failed!'}, 400))
 
 
+def create_placeholder(value: dict) -> dict:
+    value['placeholder'] = value.get('name')[:2:]
+
+
 @app.route('/user/create', methods=['POST'])
 def user_create():
     data = request.get_json()
@@ -47,6 +51,7 @@ def user_login():
 def get_user_id(id):
     data = user.get(column_name=user.id, credential=id)
     if (data):
+        data =
         return jsonify(data)
     else:
         return failed
