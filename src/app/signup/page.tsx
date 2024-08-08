@@ -10,9 +10,37 @@ const Page = () => {
     setSignedin(false);
   }
 
-  function handleSignIn(e: any) {
-    e.preventdefault();
+
+  async function handleSignIn(e: any) {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    try {
+      const response = await fetch("http://127.0.0.1:5000/user/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("User created successfully:", data);
+        return JSON.stringify(data);
+      } else {
+        const errorData = await response.json();
+        console.error("Failed to create user:", errorData);
+        setError(errorData.message);
+      }
+    } catch (error) {
+      console.error("Error creating user:", error);
+    }
   }
+
 
   return (
     <>
