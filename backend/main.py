@@ -16,10 +16,25 @@ with app.app_context():
     failed = make_response(jsonify({'status': 'Failed!'}, 400))
 
 
+@app.route('/user/create', methods=['POST'])
+def user_create():
+    data = request.get_json()
+
+    if (type(data) is dict):
+        if (data.get('name')):
+            data['name'] = data['name'].title()
+        user.insert(data.get('name'), data.get('description'),
+                    data.get('email'), data.get('phone'), data.get('password'))
+        return jsonify('Success!')
+    else:
+        return failed
+
+
 @app.route('/user/login', methods=['GET'])
 def user_login():
-    email = request.form.get('email')
-    password = request.form.get('password')
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
     data = user.login(email=email, password=password)
     print(data)
     if (request.get_json()):
@@ -58,8 +73,9 @@ def get_user_phone(phone):
 # Seller Details
 @app.route('/seller/login', methods=['GET'])
 def seller_login():
-    email = request.form.get('email')
-    password = request.form.get('password')
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
     data = user.login(email=email, password=password)
     print(data)
     if (data):
@@ -97,7 +113,7 @@ def get_seller_description(description):
 
 @app.route('/seller/fssai/<int:fssai>')
 def get_seller_fssai(fssai):
-    data = seller.get(column_name=user.fssai, credential=fssai)
+    data = seller.get(column_name=seller.fssai, credential=fssai)
     if (data):
         return jsonify(data)
     else:
@@ -106,7 +122,7 @@ def get_seller_fssai(fssai):
 
 @app.route('/seller/get/id/<int:id>')
 def get_seller_id(id):
-    data = seller.get(column_name=user.id, credential=id)
+    data = seller.get(column_name=seller.id, credential=id)
     if (data):
         return jsonify(data)
     else:
@@ -187,27 +203,16 @@ def get_all_products():
 
 @app.route('/products/insert', methods=['GET'])
 def insert():
-    seller_id = request.form.get('seller_id')
-    name = request.form.get('name')
-    description = request.form.get('description')
-    product_image = request.form.get('product_image')
+    data = request.get_json()
+    seller_id = data.get('seller_id')
+    name = data.get('name')
+    description = data.get('description')
+    product_image = data.get('product_image')
     data = product.insert(seller_id=seller_id, name=name,
                           description=description, product_image=product_image)
     print(data)
     if (data):
         return jsonify(data)
-    else:
-        return failed
-
-
-@app.route('/user/create', methods=['POST'])
-def user_create():
-    data = request.get_json()
-    print(data)
-    if (type(data) is dict):
-        user.insert(data.get('name'), data.get('description'),
-                    data.get('email'), data.get('phone'), data.get('password'))
-        return jsonify('Success!')
     else:
         return failed
 
