@@ -182,7 +182,7 @@ export default function Component() {
                   locally sourced, seasonal ingredients.
                 </p>
                 <div className="mt-4">
-                  <Link href={"/store-info"}>
+                  <Link href={"/delight"}>
                     <Button variant="outline" size="sm">
                       View Details
                     </Button>
@@ -213,7 +213,7 @@ export default function Component() {
                   the finest ingredients.
                 </p>
                 <div className="mt-4">
-                  <Link href={"/store-info"}>
+                  <Link href={"/artbakery"}>
                     <Button variant="outline" size="sm">
                       View Details
                     </Button>
@@ -244,7 +244,7 @@ export default function Component() {
                   food products.
                 </p>
                 <div className="mt-4">
-                  <Link href={"/store-info"}>
+                  <Link href={"/organic"}>
                     <Button variant="outline" size="sm">
                       View Details
                     </Button>
