@@ -147,7 +147,7 @@ export default function Component() {
                 <div className="flex items-center gap-4 mt-4">
                   <LocateIcon className="w-5 h-5 text-white" />
                   <span className="text-sm text-white">
-                    123 Gandhi Road, Malad-West
+                    123 Nehru Road, Vasai-West
                   </span>
                 </div>
                 <div className="flex items-center gap-4 mt-4">
