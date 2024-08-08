@@ -32,7 +32,6 @@ const Page = () => {
       }
     } catch (error) {
       console.error("Error creating user:", error);
-      setError("An error occurred while creating the user");
     }
   }
 
