@@ -153,7 +153,7 @@ const Navbar: React.FC = () => {
               HygieneUp 
             </Link>
           </div>
-          <div className="relative flex-1 max-w-md ">
+          <div className="relative flex-1 max-w-md">
             <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input
               type="search"
@@ -186,7 +186,7 @@ const Navbar: React.FC = () => {
               <DropdownMenuItem asChild>
                 <Link
                   href="https://foscos.fssai.gov.in/consumergrievance/"
-                  target="_blamk"
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   My Complaints
@@ -201,7 +201,7 @@ const Navbar: React.FC = () => {
         ) : (
           <div className="items-center gap-4 hidden md:block">
             <Button variant="ghost">
-              <UserIcon className="w-5 h-5 mr-2 " />
+              <UserIcon className="w-5 h-5 mr-2" />
               Sign in
             </Button>
             <Link href="/signup" passHref>
@@ -264,7 +264,6 @@ const Navbar: React.FC = () => {
                     Sign in
                   </button>
                 </Link>
-
                 <Link
                   href="/signup"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
@@ -289,3 +288,9 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+
+// setUserData({
+//   name: data.name,
+//   email: data.email,
+// });
