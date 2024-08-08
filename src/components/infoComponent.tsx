@@ -106,10 +106,45 @@ export default function Component() {
     filter: "brightness(0.5)",
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle form submission
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
+  const rating = (e.target as any).rating.value;
+  const review  = (e.target as any).review.value;
+  
+
+  const userData = {
+    rating: rating,
+    review: review,
+    
   };
+
+  console.log(userData);
+
+  try {
+    const response = await fetch("http://127.0.0.1:5000/seller/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log("User created successfully:", data);
+      return JSON.stringify(data);
+    } else {
+      const errorData = await response.json();
+      console.error("Failed to create user:", errorData);
+      // Handle error by setting error state or displaying error message
+      // setError(errorData.message);
+    }
+  } catch (error) {
+    console.error("Error creating user:", error);
+    // Handle error by setting error state or displaying error message
+    // setError("An error occurred while creating the user.");
+  }
+};
 
   return (
     <>
@@ -234,7 +269,7 @@ export default function Component() {
                 <form onSubmit={handleSubmit} className="grid gap-4">
                   <div className="grid gap-2">
                     <Label htmlFor="rating">Rating</Label>
-                    <RadioGroup id="rating" defaultValue="3">
+                    <RadioGroup id="rating" name="rating" defaultValue="3">
                       <div className="flex items-center gap-2 overflow-x-scroll md:overflow-auto">
                         <Label
                           htmlFor="rating-1"
@@ -273,6 +308,7 @@ export default function Component() {
                     <Label htmlFor="review">Review</Label>
                     <Textarea
                       id="review"
+                      name="review"
                       placeholder="Write your review here..."
                     />
                   </div>
