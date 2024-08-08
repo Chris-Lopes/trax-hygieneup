@@ -5,7 +5,7 @@ from flask_cors import CORS
 # Run this main.py after cd into trax-hygineneup and not backend
 
 app = Flask(__name__)
-CORS(app, resources={r'/*': {'origins': "*"}})
+CORS(app)
 user = manager.User()
 seller = manager.Seller()
 review = manager.Reviews()
@@ -22,7 +22,7 @@ def user_login():
     password = request.form.get('password')
     data = user.login(email=email, password=password)
     print(data)
-    if (data):
+    if (request.get_json()):
         return jsonify(data)
     else:
         return failed
@@ -197,7 +197,11 @@ def user_create():
     description = request.form.get('description')
     phone = request.form.get('phone')
     password = request.form.get('password')
-    status = user.insert(name, description, email, phone, password)
+    print(request.get_json())
+    if request.form:
+        status = user.insert(name, description, email, phone, password)
+    else:
+        status = 0
 
     if status:
         response = make_response(jsonify('Success!'), 200)
