@@ -105,7 +105,7 @@ export default function UserStoreInfo() {
                   <StarIcon className="h-6 w-6 fill-muted stroke-muted-foreground" />
                 </div>
                 <div className="text-muted-foreground sm:text-sm">
-                  Based on 14 reviews
+                  Based on 15 reviews
                 </div>
               </CardContent>
             </Card>
