@@ -98,16 +98,13 @@ function SearchIcon(props: IconProps) {
   );
 }
 
-
-
-
 const Navbar: React.FC = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
-
-  const [userData, setUserData] = useState < any>({
+  const [userData, setUserData] = useState<{ name: string; email: string }>({
     name: "",
     email: "",
   });
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -122,25 +119,23 @@ const Navbar: React.FC = () => {
           const data = await response.json();
           console.log("Fetched user data successfully:", data);
 
-          // Update userData array with the fetched data
+          // Update userData with the fetched data
           setUserData({
             name: data.name,
             email: data.email,
           });
           setIsSignedIn(true);
+          console.log(userData.name)
         } else {
           const errorData = await response.json();
           console.error("Failed to fetch user data:", errorData);
-          // Handle error by setting error state or displaying error message
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
-        // Handle error by setting error state or displaying error message
       }
     };
+
     fetchUserData();
-    console.log(userData.name);
-    
   }, []);
 
   return (
@@ -153,10 +148,10 @@ const Navbar: React.FC = () => {
               className="flex items-center gap-2 text-xl font-bold"
               prefetch={false}
             >
-              HygieneUp 
+              HygieneUp {userData.name}
             </Link>
           </div>
-          <div className="relative flex-1 max-w-md ">
+          <div className="relative flex-1 max-w-md">
             <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input
               type="search"
@@ -184,12 +179,12 @@ const Navbar: React.FC = () => {
               <DropdownMenuLabel>Admin</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link href="#footer"></Link>
+                <Link href="#footer">Contact</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link
                   href="https://foscos.fssai.gov.in/consumergrievance/"
-                  target="_blamk"
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   My Complaints
@@ -204,7 +199,7 @@ const Navbar: React.FC = () => {
         ) : (
           <div className="items-center gap-4 hidden md:block">
             <Button variant="ghost">
-              <UserIcon className="w-5 h-5 mr-2 " />
+              <UserIcon className="w-5 h-5 mr-2" />
               Sign in
             </Button>
             <Link href="/signup" passHref>
@@ -267,7 +262,6 @@ const Navbar: React.FC = () => {
                     Sign in
                   </button>
                 </Link>
-
                 <Link
                   href="/signup"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
@@ -292,3 +286,9 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+
+// setUserData({
+//   name: data.name,
+//   email: data.email,
+// });
