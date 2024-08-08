@@ -100,41 +100,45 @@ function SearchIcon(props: IconProps) {
 
 const Navbar: React.FC = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
-
+   const [userData, setUserData] = useState("");
   const userEmail: string = "";
   const userName: string = "";
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch("http://127.0.0.1:5000/user/get/id/1", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
 
-        if (response.ok) {
-          const { ...data } = await response.json();
-          console.log("Fetched user data successfully:", data);
+    useEffect(() => {
+      const fetchUserData = async () => {
+        try {
+          const response = await fetch("http://127.0.0.1:5000/user/get/id/1", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
 
-          // Update userData array with the fetched data
-          // userEmail = data.email;
-          // userName = data.name;
-          setIsSignedIn(true);
-        } else {
-          const errorData = await response.json();
-          console.error("Failed to fetch user data:", errorData);
-          // Handle error by setting error state or displaying error message
+          if (response.ok) {
+            const data = await response.json();
+            console.log("Fetched user data successfully:", data);
+
+            // Update userData with the fetched data
+            setUserData(data);
+            setIsSignedIn(true);
+          } else {
+            const errorData = await response.json();
+            console.error("Failed to fetch user data:", errorData);
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
         }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-        // Handle error by setting error state or displaying error message
-      }
-    };
-    fetchUserData();
+      };
 
-    console.log(userName);
-  }, []);
+      fetchUserData();
+    }, []);
+
+    // useEffect(() => {
+    //   if (userData) {
+    //     console.log(userData.email);
+    //   }
+    // }, [userData]);
+
 
   return (
     <header className="bg-primary text-primary-foreground py-4 px-6 md:px-8">
@@ -146,7 +150,7 @@ const Navbar: React.FC = () => {
               className="flex items-center gap-2 text-xl font-bold"
               prefetch={false}
             >
-              HygieneUp
+              HygieneUp 
             </Link>
           </div>
           <div className="relative flex-1 max-w-md ">
@@ -159,7 +163,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {isSignedIn ? (
+        {userData ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
