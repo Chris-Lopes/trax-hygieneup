@@ -19,7 +19,7 @@ str().capitalize
 
 
 def create_placeholder(value: dict) -> dict:
-    value['placeholder'] = value.get('name')[:2:].capitalize()
+    value['placeholder'] = value.get('name')[:2:].upper()
 
 
 @app.route('/user/create', methods=['POST'])
