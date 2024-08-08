@@ -18,7 +18,7 @@ def main():
     cur.execute(f'''CREATE TABLE IF NOT EXISTS {seller} (
                 id INTEGER PRIMARY KEY,
                 name TEXT,
-                description TEXT,
+                cuisine TEXT,
                 fssai INTEGER,
                 email TEXT,
                 phone INTEGER,

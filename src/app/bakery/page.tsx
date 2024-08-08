@@ -14,9 +14,9 @@ import {
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Review from "./ReviewCardMain";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Review from "@/components/ReviewCardMain";
 import { SVGProps } from "react";
 
 function ClockIcon(props: SVGProps<SVGSVGElement>) {
@@ -96,56 +96,23 @@ function ThumbsUpIcon(props: SVGProps<SVGSVGElement>) {
       strokeLinejoin="round"
     >
       <path d="M7 10v12" />
-      <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z" />
+      <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" />
     </svg>
   );
 }
 
 export default function Component() {
   const backgroundStyle: React.CSSProperties = {
-    backgroundImage: `url('/store2.png')`,
+    backgroundImage: `url('/bakery.jpg')`,
     filter: "brightness(0.5)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-
-  const rating = (e.target as any).rating.value;
-  const review  = (e.target as any).review.value;
-  
-
-  const userData = {
-    rating: rating,
-    review: review,
-    
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Handle form submission
   };
-
-  console.log(userData);
-
-  try {
-    const response = await fetch("http://127.0.0.1:5000/seller/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      console.log("User created successfully:", data);
-      return JSON.stringify(data);
-    } else {
-      const errorData = await response.json();
-      console.error("Failed to create user:", errorData);
-      // Handle error by setting error state or displaying error message
-      // setError(errorData.message);
-    }
-  } catch (error) {
-    console.error("Error creating user:", error);
-    // Handle error by setting error state or displaying error message
-    // setError("An error occurred while creating the user.");
-  }
-};
 
   return (
     <>
@@ -160,7 +127,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             <div className="flex items-center gap-4">
               <div>
                 <h1 className="text-3xl font-bold text-white flex items-center">
-                  Acme Bistro
+                  Bakery Delight
                   <ShieldCheck className="ml-2" size={27} />
                 </h1>
                 <p className="text-white">
@@ -180,7 +147,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <div className="flex items-center gap-4 mt-4">
                   <LocateIcon className="w-5 h-5 text-white" />
                   <span className="text-sm text-white">
-                    123, Gandhi Road, Malad-West
+                    123 Gandhi Road, Malad-West
                   </span>
                 </div>
                 <div className="flex items-center gap-4 mt-4">
@@ -193,7 +160,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             </div>
             <div className="flex justify-end">
               <Link href="/store-know-more" passHref>
-                <Button size="lg" className="bg-black">
+                <Button size="lg" className="bg-black text-white">
                   Know more
                 </Button>
               </Link>
@@ -275,7 +242,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <form onSubmit={handleSubmit} className="grid gap-4">
                   <div className="grid gap-2">
                     <Label htmlFor="rating">Rating</Label>
-                    <RadioGroup id="rating" name="rating" defaultValue="3">
+                    <RadioGroup id="rating" defaultValue="3">
                       <div className="flex items-center gap-2 overflow-x-scroll md:overflow-auto">
                         <Label
                           htmlFor="rating-1"
@@ -314,7 +281,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                     <Label htmlFor="review">Review</Label>
                     <Textarea
                       id="review"
-                      name="review"
                       placeholder="Write your review here..."
                     />
                   </div>

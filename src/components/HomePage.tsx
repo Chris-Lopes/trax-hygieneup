@@ -66,7 +66,7 @@ export default function Component() {
                 freshly baked breads, pastries, and desserts.
               </p>
               <div className="mt-4">
-                <Link href={"/store-info"}>
+                <Link href={"/bakery"}>
                   <Button variant="outline" size="sm">
                     View Details
                   </Button>
@@ -145,7 +145,7 @@ export default function Component() {
               username="Thomas Dabreo"
               time="2 weeks ago"
             >
-              I recently visited Healthy Eats and appreciated the range of
+              I recently visited Healthy Eats in MG and appreciated the range of
               nutritious meals on offer. The salads were fresh and vibrant, and
               the smoothies were a perfect balance of flavors. However, the
               service could be a bit quicker. Overall, a great spot for health
