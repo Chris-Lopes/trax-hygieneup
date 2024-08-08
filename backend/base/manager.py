@@ -66,7 +66,7 @@ class User(Base):  # User table handler
 class Seller(Base):  # Seller table handler
     id = 'id'
     name = 'name'
-    description = 'description'
+    cuisine = 'cuisine'
     fssai = 'fssai'
     email = 'email'
     phone = 'phone'
@@ -77,10 +77,10 @@ class Seller(Base):  # Seller table handler
         self.table = setup.seller
 
     # Creates seller if email and phone doesn't exist
-    def insert(self, name: str, description: str, fssai: str, email: str, phone: int, password: str):
+    def insert(self, name: str, cuisine: str, fssai: str, email: str, phone: int, password: str):
         if (self.validate_not_exist(email=email, phone=phone)):
-            self.cursor.execute(f'''INSERT INTO {self.table} (name, description, fssai, email, phone, password) VALUES (?,?,?,?,?,?)''', (
-                name, description, fssai, email, phone, password))
+            self.cursor.execute(f'''INSERT INTO {self.table} (name, cuisine, fssai, email, phone, password) VALUES (?,?,?,?,?,?)''', (
+                name, cuisine, fssai, email, phone, password))
             con.commit()
             return True
         else:
@@ -117,7 +117,7 @@ class Reviews(Base):
     user_id = 'user_id'
     product_id = 'product_id'
     title = 'title'
-    description = 'description'
+    cuisine = 'cuisine'
     rating = 'rating'
     time = 'time'
 
@@ -186,7 +186,7 @@ class Products(Base):
 def insert_seller():    # Function to create database values not to be used for production
     seller = Seller()
     data = [
-        ['Alice Smith', 'A health inspector', 123456789,
+        ['Alice Smith', 'Healthy', 123456789,
             'alice@example.com', 9876543210, 'securepassword1'],
         ['Bob Johnson', 'Restaurant owner', 987654321,
             'bob@example.com', 8765432109, 'securepassword2'],
