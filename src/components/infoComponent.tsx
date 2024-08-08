@@ -192,28 +192,28 @@ export default function Component() {
                   avatarFallback="CN"
                   numFilledStars={4}
                   rating={4}
-                  reviewText="I love shopping at Acme Bistro! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
-                  numHelpful={41}
+                  reviewText="Nice ambiance and a diverse menu. The Mediterranean platter was a standout. The only downside was the noise level, which made it hard to have a conversation."
+                  numHelpful={18}
                 />
               </Card>
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
                   avatarFallback="CN"
-                  numFilledStars={4}
-                  rating={4}
-                  reviewText="I love shopping at Acme Bistro! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
-                  numHelpful={41}
+                  numFilledStars={3}
+                  rating={3}
+                  reviewText="The food was decent but didn't blow me away. The Asian dishes were better than the Italian ones. Service was friendly but slow, and the place was quite crowded."
+                  numHelpful={30}
                 />
               </Card>
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
                   avatarFallback="CN"
-                  numFilledStars={4}
-                  rating={4}
-                  reviewText="I love shopping at Acme Bistro! The selection of organic and locally-sourced products is fantastic, and the prices are very reasonable. The store is always clean and well-stocked, and the staff is incredibly helpful and friendly."
-                  numHelpful={41}
+                  numFilledStars={5}
+                  rating={5}
+                  reviewText="Great selection of international dishes. The Thai curry was delicious, and the portion sizes were generous. The decor is stylish and modern."
+                  numHelpful={25}
                 />
               </Card>
             </div>
