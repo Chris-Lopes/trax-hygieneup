@@ -1,5 +1,4 @@
 "use client";
-import { Switch } from "@/components/ui/switch";
 import {
   Select,
   SelectContent,
@@ -13,6 +12,7 @@ import React, { useState } from "react";
 
 const Page = () => {
   const [isStartDone, setStart] = useState(false);
+  const [cuisine, setCuisine] = useState("");
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +21,6 @@ const Page = () => {
     const email = (e.target as any).email.value;
     const password = (e.target as any).password.value;
     const fssaiCode = (e.target as any).fssaicode.value;
-    const cuisine = (e.target as any).cuisine.value;
 
     const userData = {
       name: storeName,
@@ -67,9 +66,7 @@ const Page = () => {
             HygieneUp | Sign Up
           </h2>
           <form onSubmit={handleSignIn}>
-            {isStartDone ? (
-              <>
-                <div className="relative mb-4">
+                        <div className="relative mb-4">
                   <label
                     htmlFor="storename"
                     className="leading-7 text-sm text-gray-600"
@@ -98,7 +95,7 @@ const Page = () => {
                   />
                 </div>
                 <div className="relative mb-4">
-                  <Select>
+                  <Select onValueChange={(value) => setCuisine(value)}>
                     <SelectTrigger className="w-[180px]">
                       <SelectValue placeholder="Select a Cuisine" />
                     </SelectTrigger>
@@ -119,17 +116,8 @@ const Page = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                <Link href={"/store-home"}>
-                  <button
-                    type="submit"
-                    className="text-white w-full mt-3 bg-black border-0 py-2 px-8 focus:outline-none hover:bg-slate-600 rounded text-lg"
-                  >
-                    Submit
-                  </button>
-                </Link>
-              </>
-            ) : (
-              <>
+     
+
                 <div className="relative mb-4">
                   <label
                     htmlFor="email"
@@ -166,13 +154,13 @@ const Page = () => {
                     Confirm Password
                   </label>
                   <input
-                    type="confirm-password"
+                    type="password"
                     id="confirm-password"
                     name="confirm-password"
                     className="w-full bg-white rounded border border-gray-300 focus:border-black focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
-                <button
+                {/* <button
                   onClick={(e: any) => {
                     setStart(true);
                     e.preventDefault();
@@ -180,9 +168,14 @@ const Page = () => {
                   className="text-white w-full mt-3 bg-black border-0 py-2 px-8 focus:outline-none hover:bg-slate-600 rounded text-lg"
                 >
                   Next
+                </button> */}
+                           <button
+                  type="submit"
+                  className="text-white w-full mt-3 bg-black border-0 py-2 px-8 focus:outline-none hover:bg-slate-600 rounded text-lg"
+                >
+                  Submit
                 </button>
-              </>
-            )}
+    
           </form>
         </div>
       </div>
