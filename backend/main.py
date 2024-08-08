@@ -51,7 +51,7 @@ def user_login():
 def get_user_id(id):
     data = user.get(column_name=user.id, credential=id)
     if (data):
-        data =
+        data = create_placeholder(data)
         return jsonify(data)
     else:
         return failed
