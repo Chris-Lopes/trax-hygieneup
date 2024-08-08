@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
     useEffect(() => {
       const fetchUserData = async () => {
         try {
-          const response = await fetch("http://127.0.0.1:5000/user/get/id/0", {
+          const response = await fetch("http://127.0.0.1:5000/user/get/id/3", {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -173,7 +173,7 @@ const Navbar: React.FC = () => {
               >
                 <Avatar className="w-8 h-8">
                   <AvatarImage src="/placeholder-user.jpg" alt="Avatar" />
-                  <AvatarFallback>AC</AvatarFallback>
+                  <AvatarFallback>{userData.name}</AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
