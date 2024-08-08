@@ -34,7 +34,7 @@ const Page = () => {
     console.log(userData);
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/user/create", {
+      const response = await fetch("http://127.0.0.1:5000/seller/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,6 @@ const Page = () => {
       // setError("An error occurred while creating the user.");
     }
   };
-
 
   return (
     <>
@@ -86,22 +85,6 @@ const Page = () => {
                 </div>
                 <div className="relative mb-4">
                   <label
-                    htmlFor="storename"
-                    className="leading-7 text-sm text-gray-600"
-                  >
-                    Upload Store Image
-                  </label>
-                  <input
-                    type="file"
-                    id="file"
-                    name="file"
-                    accept="image/*"
-                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                  />
-                </div>
-
-                <div className="relative mb-4">
-                  <label
                     htmlFor="fssaicode"
                     className="leading-7 text-sm text-gray-600"
                   >
@@ -124,12 +107,12 @@ const Page = () => {
                         <SelectItem value="Italian">Italian</SelectItem>
                         <SelectItem value="Chinese">Chinese</SelectItem>
                         <SelectItem value="Asian">Asian</SelectItem>
-                        <SelectItem value="Middle East">
-                          Middle East
-                        </SelectItem>
+                        <SelectItem value="Middle East">Middle East</SelectItem>
                         <SelectItem value="Korean">Korean</SelectItem>
                         <SelectItem value="Indian">Indian</SelectItem>
-                        <SelectItem value="South Indian">South Indian</SelectItem>
+                        <SelectItem value="South Indian">
+                          South Indian
+                        </SelectItem>
                         <SelectItem value="Cafe">Cafe</SelectItem>
                         <SelectItem value="Bakery">Bakery</SelectItem>
                       </SelectGroup>
