@@ -154,7 +154,7 @@ export default function Component() {
             </div>
             <div className="flex justify-end">
               <Link href="/store-know-more" passHref>
-                <Button size="lg">Know more</Button>
+                <Button size="lg" className="bg-black">Know more</Button>
               </Link>
               <Link
                 href="http://surl.li/itpacw"
