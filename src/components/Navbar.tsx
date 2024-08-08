@@ -153,7 +153,7 @@ const Navbar: React.FC = () => {
               className="flex items-center gap-2 text-xl font-bold"
               prefetch={false}
             >
-              HygieneUp {userData.name}
+              HygieneUp 
             </Link>
           </div>
           <div className="relative flex-1 max-w-md ">
@@ -184,7 +184,7 @@ const Navbar: React.FC = () => {
               <DropdownMenuLabel>Admin</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link href="#footer">{userData.user.name}</Link>
+                <Link href="#footer"></Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link
