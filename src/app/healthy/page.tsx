@@ -103,7 +103,7 @@ function ThumbsUpIcon(props: SVGProps<SVGSVGElement>) {
 
 export default function Component() {
   const backgroundStyle: React.CSSProperties = {
-    backgroundImage: `url('/bakery.jpg')`,
+    backgroundImage: `url('/rest7.jpg')`,
     filter: "brightness(0.5)",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -127,12 +127,12 @@ export default function Component() {
             <div className="flex items-center gap-4">
               <div>
                 <h1 className="text-3xl font-bold text-white flex items-center">
-                  Bakery Delight
+                  Healthy Eats
                   <ShieldCheck className="ml-2" size={27} />
                 </h1>
                 <p className="text-white">
-                  Your one-stop shop for all you need. Fresh produce, quality
-                  meats, and a wide selection of pantry items.
+                  Fresh, wholesome meals to nourish your body. Enjoy a variety
+                  of organic produce, lean proteins, and nutritious snacks.
                 </p>
                 <div className="flex items-center gap-4 mt-4">
                   <div className="flex items-center gap-0.5">
@@ -142,26 +142,26 @@ export default function Component() {
                     <StarIcon className="w-5 h-5 fill-muted text-white" />
                     <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
                   </div>
-                  <span className="text-sm text-white">4.2 out of 5</span>
+                  <span className="text-sm text-white">4.5 out of 5</span>
                 </div>
                 <div className="flex items-center gap-4 mt-4">
                   <LocateIcon className="w-5 h-5 text-white" />
                   <span className="text-sm text-white">
-                    123 Nehru Road, Vasai-West
+                    456 Subash Wadi, Ulhasnagar
                   </span>
                 </div>
                 <div className="flex items-center gap-4 mt-4">
                   <ClockIcon className="w-5 h-5 text-white" />
                   <span className="text-sm text-white">
-                    Mon-Sat: 8am-9pm, Sun: 9am-7pm
+                    Mon-Fri: 8am-8pm, Sat-Sun: 9am-6pm
                   </span>
                 </div>
               </div>
             </div>
             <div className="flex justify-end">
-              <Link href="/store-know-more" passHref>
+              <Link href="/menu" passHref>
                 <Button size="lg" className="bg-black text-white">
-                  Know more
+                  Know More
                 </Button>
               </Link>
               <Link
@@ -170,7 +170,7 @@ export default function Component() {
                 rel="noopener noreferrer"
               >
                 <Button size="lg" variant="outline" className="ml-4">
-                  File a complaint
+                 File a Complaint
                 </Button>
               </Link>
             </div>
@@ -197,30 +197,30 @@ export default function Component() {
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
-                  avatarFallback="CN"
+                  avatarFallback="HN"
                   numFilledStars={4}
                   rating={4}
-                  reviewText="Nice ambiance and a diverse menu. The Mediterranean platter was a standout. The only downside was the noise level, which made it hard to have a conversation."
+                  reviewText="Great place for healthy meals! The quinoa salad was fresh and satisfying. The only downside was the limited seating during peak hours."
                   numHelpful={18}
                 />
               </Card>
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
-                  avatarFallback="CN"
+                  avatarFallback="HN"
                   numFilledStars={3}
                   rating={3}
-                  reviewText="The food was decent but didn't blow me away. The Asian dishes were better than the Italian ones. Service was friendly but slow, and the place was quite crowded."
+                  reviewText="The food was good, but I expected more variety in the vegan options. The staff was friendly, and the ambiance was pleasant."
                   numHelpful={30}
                 />
               </Card>
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
-                  avatarFallback="CN"
+                  avatarFallback="HN"
                   numFilledStars={5}
                   rating={5}
-                  reviewText="Great selection of international dishes. The Thai curry was delicious, and the portion sizes were generous. The decor is stylish and modern."
+                  reviewText="Absolutely loved the smoothie bowls and the fresh juices. The atmosphere is cozy, and the service is excellent."
                   numHelpful={25}
                 />
               </Card>

@@ -96,7 +96,7 @@ export default function Component() {
                 variety of nutritious and delicious meals.
               </p>
               <div className="mt-4">
-                <Link href={"/store-info"}>
+                <Link href={"/healthy"}>
                   <Button variant="outline" size="sm">
                     View Details
                   </Button>
