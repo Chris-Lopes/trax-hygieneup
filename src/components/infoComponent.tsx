@@ -1,6 +1,6 @@
 "use client";
 import { ShieldCheck } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -18,6 +18,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Review from "./ReviewCardMain";
 import { SVGProps } from "react";
+import { Description } from "@radix-ui/react-dialog";
 
 function ClockIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -102,50 +103,81 @@ function ThumbsUpIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 export default function Component() {
+  const [userData, setUserData] = useState([]);
   const backgroundStyle: React.CSSProperties = {
     backgroundImage: `url('/store2.png')`,
     filter: "brightness(0.5)",
   };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:5000/review/get/product_id/1",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
-  const rating = (e.target as any).rating.value;
-  const review  = (e.target as any).review.value;
-  
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Fetched user data successfully:", data);
 
-  const userData = {
-    rating: rating,
-    review: review,
-    
-  };
+          // Update userData with the fetched data
+          setUserData(data);
+        } else {
+          const errorData = await response.json();
+          console.error("Failed to fetch user data:", errorData);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
 
-  console.log(userData);
+    fetchUserData();
+  }, []);
 
-  try {
-    const response = await fetch("http://127.0.0.1:5000/review/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
-    if (response.ok) {
-      const data = await response.json();
-      console.log("User created successfully:", data);
-      return JSON.stringify(data);
-    } else {
-      const errorData = await response.json();
-      console.error("Failed to create user:", errorData);
+    const rating = (e.target as any).rating.value;
+    const review = (e.target as any).review.value;
+
+    const userData = {
+      rating: rating,
+      description: review,
+      product_id: 1,
+    };
+
+    console.log(userData);
+
+    try {
+      const response = await fetch("http://127.0.0.1:5000/review/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("User created successfully:", data);
+        return JSON.stringify(data);
+      } else {
+        const errorData = await response.json();
+        console.error("Failed to create user:", errorData);
+        // Handle error by setting error state or displaying error message
+        // setError(errorData.message);
+      }
+    } catch (error) {
+      console.error("Error creating user:", error);
       // Handle error by setting error state or displaying error message
-      // setError(errorData.message);
+      // setError("An error occurred while creating the user.");
     }
-  } catch (error) {
-    console.error("Error creating user:", error);
-    // Handle error by setting error state or displaying error message
-    // setError("An error occurred while creating the user.");
-  }
-};
+  };
 
   return (
     <>
@@ -227,6 +259,18 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               </div>
             </div>
             <div className="grid gap-8">
+              {(userData[0]) ?? (
+                <Card className="p-6 rounded-lg shadow-lg">
+                  <Review
+                    avatarSrc="/placeholder-user.jpg"
+                    avatarFallback="CH"
+                    numFilledStars={userData[0].rating}
+                    rating={userData[0].rating}
+                    reviewText={ userData[0].description}
+                    numHelpful={18}
+                  />
+                </Card>
+              )}
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
