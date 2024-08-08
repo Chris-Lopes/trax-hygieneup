@@ -6,12 +6,7 @@ import Footer from "./Footer";
 import { Import } from "lucide-react";
 import Image from "next/image";
 
-
-
-
-
 export default function Component() {
-    
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
@@ -119,22 +114,21 @@ export default function Component() {
             <ReviewCard
               numFilledStars={4}
               avatarSrc="/placeholder-user-2.jpg"
-              avatarFallback="JD"
-              username="John Doe"
+              avatarFallback="VD"
+              username="Vanil D'mello"
               time="2 weeks ago"
             >
-              I recently visited Acme Bistro and was blown away by the quality
-              and variety of their baked goods. The croissants were flaky and
-              buttery, and the cakes were moist and flavorful. The staff was
-              friendly and knowledgeable, and the overall experience was
-              fantastic. I'll definitely be a regular customer.
+              I recently visited Acme Bistro and was delighted by the authentic
+              Italian flavors and cozy ambiance. The pasta was perfectly cooked,
+              and the tiramisu was a delightful end to the meal. A must-visit for
+              Italian cuisine lovers.
             </ReviewCard>
 
             <ReviewCard
               numFilledStars={5}
               avatarSrc="/placeholder-user-2.jpg"
-              avatarFallback="RN"
-              username="Rhys Nunes"
+              avatarFallback="VN"
+              username="Vijay Nunes"
               time="2 weeks ago"
             >
               I recently visited Bakery Delights and was blown away by the
@@ -147,15 +141,15 @@ export default function Component() {
             <ReviewCard
               numFilledStars={3}
               avatarSrc="/placeholder-user-2.jpg"
-              avatarFallback="RE"
-              username="Reniyas"
+              avatarFallback="TD"
+              username="Thomas Dabreo"
               time="2 weeks ago"
             >
-              I recently visited Healthy Eats and was blown away by the quality
-              and variety of their baked goods. The croissants were flaky and
-              buttery, and the cakes were moist and flavorful. The staff was
-              friendly and knowledgeable, and the overall experience was
-              fantastic. I'll definitely be a regular customer.
+              I recently visited Healthy Eats and appreciated the range of
+              nutritious meals on offer. The salads were fresh and vibrant, and
+              the smoothies were a perfect balance of flavors. However, the
+              service could be a bit quicker. Overall, a great spot for health
+              enthusiasts.
             </ReviewCard>
           </div>
         </section>
