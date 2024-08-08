@@ -223,4 +223,7 @@ def insert():
 
 
 if __name__ == '__main__':
+    manager.insert_product()
+    manager.insert_seller()
+    manager.insert_user()
     app.run(debug=True)
