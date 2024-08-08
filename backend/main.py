@@ -15,9 +15,11 @@ failed = 0  # Failed json response with status code
 with app.app_context():
     failed = make_response(jsonify({'status': 'Failed!'}, 400))
 
+str().capitalize
+
 
 def create_placeholder(value: dict) -> dict:
-    value['placeholder'] = value.get('name')[:2:]
+    value['placeholder'] = value.get('name')[:2:].capitalize()
 
 
 @app.route('/user/create', methods=['POST'])
