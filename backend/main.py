@@ -111,7 +111,17 @@ def get_seller_id(id):
     else:
         return failed
 
+
 # Reviews Panel
+@app.route('/review/create', methods=['POST'])
+def review_create():
+    data = request.get_json()
+    if (data is dict):
+        review.insert(data['user_id'], data['product_id'], data['title'],
+                      data['description'], data['rating'], data['time'])
+        return jsonify('Success!')
+    else:
+        return failed
 
 
 @app.route('/review/get/user_id/<int:user_id>')
