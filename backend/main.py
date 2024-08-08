@@ -70,8 +70,9 @@ def seller_login():
 
 @app.route('/seller/create')
 def seller_create():
-    pass
-    # Seller Name
+    data = request.get_json()
+    if (data is dict):
+        seller.insert(data['name'], data['cuisine'])
 
 
 @app.route('/seller/get/name/<name>')
@@ -201,23 +202,12 @@ def insert():
 
 @app.route('/user/create', methods=['POST'])
 def user_create():
-    email = request.form.get('email')
-    name = request.form.get('name')
-    password = request.form.get('password')
-    description = request.form.get('description')
-    phone = request.form.get('phone')
-    password = request.form.get('password')
-    print(request.get_json())
-    if request.form:
-        status = user.insert(name, description, email, phone, password)
-    else:
-        status = 0
-
-    if status:
-        response = make_response(jsonify('Success!'), 200)
-        print(make_response)
-        return response
-
+    data = request.get_json()
+    print(data)
+    if (type(data) is dict):
+        user.insert(data.get('name'), data.get('description'),
+                    data.get('email'), data.get('phone'), data.get('password'))
+        return jsonify('Success!')
     else:
         return failed
 
