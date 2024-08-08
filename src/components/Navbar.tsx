@@ -204,6 +204,12 @@ const Navbar: React.FC = () => {
                 >
                   Contact
                 </Link>
+                <button
+                  onClick={() => setIsSignedIn(false)}
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+                >
+                  Log Out
+                </button>
               </nav>
             ) : (
               <nav className="grid gap-4 p-4">
@@ -214,13 +220,12 @@ const Navbar: React.FC = () => {
                 >
                   HygieneUp
                 </Link>
-                <Link
-                  href="/signin"
+                <button
+                  onClick={checkSignin}
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
-                  prefetch={false}
                 >
                   Sign in
-                </Link>
+                </button>
                 <Link
                   href="/signup"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
