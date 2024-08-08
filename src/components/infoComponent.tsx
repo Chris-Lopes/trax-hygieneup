@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -9,7 +10,7 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
- import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 import Navbar from "./Navbar";
@@ -100,6 +101,16 @@ function ThumbsUpIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 export default function Component() {
+  const backgroundStyle: React.CSSProperties = {
+    backgroundImage: `url('/store2.png')`,
+    filter: "brightness(0.5)",
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Handle form submission
+  };
+
   return (
     <>
       <Navbar />
@@ -107,10 +118,7 @@ export default function Component() {
         <section className="relative py-12 md:py-24">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url('/store2.png')`,
-              filter: "brightness(0.5)",
-            }}
+            style={backgroundStyle}
           ></div>
           <div className="relative container mx-auto px-4 md:px-6 max-w-5xl grid md:grid-cols-2 gap-8 justify-center items-center">
             <div className="flex items-center gap-4">
@@ -145,10 +153,10 @@ export default function Component() {
               </div>
             </div>
             <div className="flex justify-end">
-              <Link href={"store-know-more"}>
+              <Link href="/store-know-more" passHref>
                 <Button size="lg">Know more</Button>
               </Link>
-              <Link href={"http://surl.li/itpacw"}>
+              <Link href="http://surl.li/itpacw" passHref>
                 <Button size="lg" variant="outline" className="ml-4">
                   File a complaint
                 </Button>
@@ -162,7 +170,7 @@ export default function Component() {
               <h2 className="text-2xl font-bold">Customer Reviews</h2>
               <div className="flex items-center gap-2">
                 <Label htmlFor="sort">Sort by:</Label>
-                <Select id="sort" defaultValue="rating">
+                <Select  defaultValue="rating">
                   <SelectTrigger className="w-40">
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
@@ -206,7 +214,7 @@ export default function Component() {
               </Card>
             </div>
             <div className="flex justify-end mt-6">
-              <Link href={"/reviews"}>
+              <Link href="/reviews" passHref>
                 <Button variant="outline">View more</Button>
               </Link>
             </div>
@@ -219,7 +227,7 @@ export default function Component() {
             </div>
             <div className="grid gap-8">
               <Card className="p-6 rounded-lg shadow-lg">
-                <form className="grid gap-4">
+                <form onSubmit={handleSubmit} className="grid gap-4">
                   <div className="grid gap-2">
                     <Label htmlFor="rating">Rating</Label>
                     <RadioGroup id="rating" defaultValue="3">

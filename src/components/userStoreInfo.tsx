@@ -31,14 +31,15 @@ export default function UserStoreInfo() {
             <div className="flex flex-col items-center gap-4 rounded-lg bg-background p-6 shadow-lg md:flex-row md:items-start md:gap-8">
               <div className="flex-1">
                 <h1 className="text-2xl flex font-bold sm:text-xl">
-                  Acme Bistro  <ShieldCheck className= "ml-2 text-black" size={25}/>
+                  Acme Bistro{" "}
+                  <ShieldCheck className="ml-2 text-black" size={25} />
                 </h1>
                 <p className="text-muted-foreground sm:text-sm pt-4">
-                  Acme Bistro has been a fixture in the community for
-                  over 50 years. We pride ourselves on providing high-quality,
-                  fresh produce, meats, and pantry items at reasonable prices.
-                  Our knowledgeable staff is always on hand to help you find
-                  what you need and answer any questions you may have.
+                  Acme Bistro has been a fixture in the community for over 50
+                  years. We pride ourselves on providing high-quality, fresh
+                  produce, meats, and pantry items at reasonable prices. Our
+                  knowledgeable staff is always on hand to help you find what
+                  you need and answer any questions you may have.
                 </p>
               </div>
               <div className="lg:mr-10">
@@ -116,11 +117,7 @@ export default function UserStoreInfo() {
                 <div className="text-muted-foreground sm:text-sm">Reviews</div>
               </CardContent>
               <CardContent className="flex items-center justify-center">
-                <Link
-                  href="reviews"
-                  className="text-primary hover:underline"
-                  prefetch={false}
-                >
+                <Link href="/reviews" className="text-primary hover:underline">
                   View All
                 </Link>
               </CardContent>
@@ -133,7 +130,21 @@ export default function UserStoreInfo() {
   );
 }
 
-function LinechartChart(props) {
+interface ChartData {
+  month: string;
+  desktop: number;
+}
+
+function LinechartChart(props: React.HTMLAttributes<HTMLDivElement>) {
+  const data: ChartData[] = [
+    { month: "January", desktop: 3 },
+    { month: "February", desktop: 1 },
+    { month: "March", desktop: 4 },
+    { month: "April", desktop: 5 },
+    { month: "May", desktop: 5 },
+    { month: "June", desktop: 1 },
+  ];
+
   return (
     <div {...props}>
       <ChartContainer
@@ -145,15 +156,7 @@ function LinechartChart(props) {
         }}
       >
         <LineChart
-          accessibilityLayer
-          data={[
-            { month: "January", desktop: 3 },
-            { month: "February", desktop: 1 },
-            { month: "March", desktop: 4 },
-            { month: "April", desktop: 5 },
-            { month: "May", desktop: 5 },
-            { month: "June", desktop: 1 },
-          ]}
+          data={data}
           margin={{
             left: 12,
             right: 12,
@@ -165,7 +168,7 @@ function LinechartChart(props) {
             tickLine={false}
             axisLine={false}
             tickMargin={8}
-            tickFormatter={(value) => value.slice(0, 3)}
+            tickFormatter={(value: string) => value.slice(0, 3)}
           />
           <ChartTooltip
             cursor={false}
@@ -184,7 +187,7 @@ function LinechartChart(props) {
   );
 }
 
-function MountainIcon(props) {
+function MountainIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -203,7 +206,7 @@ function MountainIcon(props) {
   );
 }
 
-function StarIcon(props) {
+function StarIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -222,7 +225,7 @@ function StarIcon(props) {
   );
 }
 
-function UserIcon(props) {
+function UserIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
