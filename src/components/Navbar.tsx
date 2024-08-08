@@ -149,7 +149,9 @@ const Navbar: React.FC = () => {
                 <Link href="#footer">Contact Us</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="https://foscos.fssai.gov.in/consumergrievance/">
+                <Link href="https://foscos.fssai.gov.in/consumergrievance/"
+                  target="_blamk" rel="noopener noreferrer"
+                >
                   My Complaints
                 </Link>
               </DropdownMenuItem>

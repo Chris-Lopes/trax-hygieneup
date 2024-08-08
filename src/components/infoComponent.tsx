@@ -156,7 +156,11 @@ export default function Component() {
               <Link href="/store-know-more" passHref>
                 <Button size="lg">Know more</Button>
               </Link>
-              <Link href="http://surl.li/itpacw" passHref>
+              <Link
+                href="http://surl.li/itpacw"
+                target="_blamk"
+                rel="noopener noreferrer"
+              >
                 <Button size="lg" variant="outline" className="ml-4">
                   File a complaint
                 </Button>
@@ -170,7 +174,7 @@ export default function Component() {
               <h2 className="text-2xl font-bold">Customer Reviews</h2>
               <div className="flex items-center gap-2">
                 <Label htmlFor="sort">Sort by:</Label>
-                <Select  defaultValue="rating">
+                <Select defaultValue="rating">
                   <SelectTrigger className="w-40">
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
