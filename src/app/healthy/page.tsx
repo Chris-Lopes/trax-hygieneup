@@ -14,9 +14,9 @@ import {
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Review from "./ReviewCardMain";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Review from "@/components/ReviewCardMain";
 import { SVGProps } from "react";
 
 function ClockIcon(props: SVGProps<SVGSVGElement>) {
@@ -96,56 +96,23 @@ function ThumbsUpIcon(props: SVGProps<SVGSVGElement>) {
       strokeLinejoin="round"
     >
       <path d="M7 10v12" />
-      <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z" />
+      <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" />
     </svg>
   );
 }
 
 export default function Component() {
   const backgroundStyle: React.CSSProperties = {
-    backgroundImage: `url('/store2.png')`,
+    backgroundImage: `url('/rest7.jpg')`,
     filter: "brightness(0.5)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-
-  const rating = (e.target as any).rating.value;
-  const review  = (e.target as any).review.value;
-  
-
-  const userData = {
-    rating: rating,
-    review: review,
-    
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Handle form submission
   };
-
-  console.log(userData);
-
-  try {
-    const response = await fetch("http://127.0.0.1:5000/review/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      console.log("User created successfully:", data);
-      return JSON.stringify(data);
-    } else {
-      const errorData = await response.json();
-      console.error("Failed to create user:", errorData);
-      // Handle error by setting error state or displaying error message
-      // setError(errorData.message);
-    }
-  } catch (error) {
-    console.error("Error creating user:", error);
-    // Handle error by setting error state or displaying error message
-    // setError("An error occurred while creating the user.");
-  }
-};
 
   return (
     <>
@@ -160,12 +127,12 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             <div className="flex items-center gap-4">
               <div>
                 <h1 className="text-3xl font-bold text-white flex items-center">
-                  Acme Bistro
+                  Healthy Eats
                   <ShieldCheck className="ml-2" size={27} />
                 </h1>
                 <p className="text-white">
-                  Your one-stop shop for all you need. Fresh produce, quality
-                  meats, and a wide selection of pantry items.
+                  Fresh, wholesome meals to nourish your body. Enjoy a variety
+                  of organic produce, lean proteins, and nutritious snacks.
                 </p>
                 <div className="flex items-center gap-4 mt-4">
                   <div className="flex items-center gap-0.5">
@@ -175,26 +142,26 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                     <StarIcon className="w-5 h-5 fill-muted text-white" />
                     <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
                   </div>
-                  <span className="text-sm text-white">4.2 out of 5</span>
+                  <span className="text-sm text-white">4.5 out of 5</span>
                 </div>
                 <div className="flex items-center gap-4 mt-4">
                   <LocateIcon className="w-5 h-5 text-white" />
                   <span className="text-sm text-white">
-                    123, Gandhi Road, Malad-West
+                    456 Subash Wadi, Ulhasnagar
                   </span>
                 </div>
                 <div className="flex items-center gap-4 mt-4">
                   <ClockIcon className="w-5 h-5 text-white" />
                   <span className="text-sm text-white">
-                    Mon-Sat: 8am-9pm, Sun: 9am-7pm
+                    Mon-Fri: 8am-8pm, Sat-Sun: 9am-6pm
                   </span>
                 </div>
               </div>
             </div>
             <div className="flex justify-end">
-              <Link href="/store-know-more" passHref>
-                <Button size="lg" className="bg-black">
-                  Know more
+              <Link href="/menu" passHref>
+                <Button size="lg" className="bg-black text-white">
+                  Know More
                 </Button>
               </Link>
               <Link
@@ -203,7 +170,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 rel="noopener noreferrer"
               >
                 <Button size="lg" variant="outline" className="ml-4">
-                  File a complaint
+                 File a Complaint
                 </Button>
               </Link>
             </div>
@@ -230,30 +197,30 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
-                  avatarFallback="CN"
+                  avatarFallback="HN"
                   numFilledStars={4}
                   rating={4}
-                  reviewText="Nice ambiance and a diverse menu. The Mediterranean platter was a standout. The only downside was the noise level, which made it hard to have a conversation."
+                  reviewText="Great place for healthy meals! The quinoa salad was fresh and satisfying. The only downside was the limited seating during peak hours."
                   numHelpful={18}
                 />
               </Card>
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
-                  avatarFallback="CN"
+                  avatarFallback="HN"
                   numFilledStars={3}
                   rating={3}
-                  reviewText="The food was decent but didn't blow me away. The Asian dishes were better than the Italian ones. Service was friendly but slow, and the place was quite crowded."
+                  reviewText="The food was good, but I expected more variety in the vegan options. The staff was friendly, and the ambiance was pleasant."
                   numHelpful={30}
                 />
               </Card>
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
-                  avatarFallback="CN"
+                  avatarFallback="HN"
                   numFilledStars={5}
                   rating={5}
-                  reviewText="Great selection of international dishes. The Thai curry was delicious, and the portion sizes were generous. The decor is stylish and modern."
+                  reviewText="Absolutely loved the smoothie bowls and the fresh juices. The atmosphere is cozy, and the service is excellent."
                   numHelpful={25}
                 />
               </Card>
@@ -275,7 +242,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <form onSubmit={handleSubmit} className="grid gap-4">
                   <div className="grid gap-2">
                     <Label htmlFor="rating">Rating</Label>
-                    <RadioGroup id="rating" name="rating" defaultValue="3">
+                    <RadioGroup id="rating" defaultValue="3">
                       <div className="flex items-center gap-2 overflow-x-scroll md:overflow-auto">
                         <Label
                           htmlFor="rating-1"
@@ -314,7 +281,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                     <Label htmlFor="review">Review</Label>
                     <Textarea
                       id="review"
-                      name="review"
                       placeholder="Write your review here..."
                     />
                   </div>

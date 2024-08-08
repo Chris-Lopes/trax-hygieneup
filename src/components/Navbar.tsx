@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -98,12 +98,50 @@ function SearchIcon(props: IconProps) {
   );
 }
 
+
+
+
 const Navbar: React.FC = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
-  const checkSignin = () => {
-    setIsSignedIn(true);
-  };
+  const [userData, setUserData] = useState < any>({
+    name: "",
+    email: "",
+  });
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:5000/user/get/id/2", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Fetched user data successfully:", data);
+
+          // Update userData array with the fetched data
+          setUserData({
+            name: data.name,
+            email: data.email,
+          });
+          setIsSignedIn(true);
+        } else {
+          const errorData = await response.json();
+          console.error("Failed to fetch user data:", errorData);
+          // Handle error by setting error state or displaying error message
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        // Handle error by setting error state or displaying error message
+      }
+    };
+    fetchUserData();
+    console.log(userData.name);
+    
+  }, []);
 
   return (
     <header className="bg-primary text-primary-foreground py-4 px-6 md:px-8">
@@ -115,7 +153,7 @@ const Navbar: React.FC = () => {
               className="flex items-center gap-2 text-xl font-bold"
               prefetch={false}
             >
-              HygieneUp
+              HygieneUp {userData.name}
             </Link>
           </div>
           <div className="relative flex-1 max-w-md ">
@@ -146,11 +184,13 @@ const Navbar: React.FC = () => {
               <DropdownMenuLabel>Admin</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link href="#footer">Contact Us</Link>
+                <Link href="#footer">{userData.user.name}</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="https://foscos.fssai.gov.in/consumergrievance/"
-                  target="_blamk" rel="noopener noreferrer"
+                <Link
+                  href="https://foscos.fssai.gov.in/consumergrievance/"
+                  target="_blamk"
+                  rel="noopener noreferrer"
                 >
                   My Complaints
                 </Link>
@@ -163,7 +203,7 @@ const Navbar: React.FC = () => {
           </DropdownMenu>
         ) : (
           <div className="items-center gap-4 hidden md:block">
-            <Button variant="ghost" onClick={checkSignin}>
+            <Button variant="ghost">
               <UserIcon className="w-5 h-5 mr-2 " />
               Sign in
             </Button>
@@ -222,12 +262,12 @@ const Navbar: React.FC = () => {
                 >
                   HygieneUp
                 </Link>
-                <button
-                  onClick={checkSignin}
-                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
-                >
-                  Sign in
-                </button>
+                <Link href="/signin">
+                  <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+                    Sign in
+                  </button>
+                </Link>
+
                 <Link
                   href="/signup"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
