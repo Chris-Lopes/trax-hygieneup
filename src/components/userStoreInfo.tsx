@@ -35,11 +35,22 @@ export default function UserStoreInfo() {
                   <ShieldCheck className="ml-2 text-black" size={25} />
                 </h1>
                 <p className="text-muted-foreground sm:text-sm pt-4">
-                  Acme Bistro has been a fixture in the community for over 50
-                  years. We pride ourselves on providing high-quality, fresh
+                  Acme Bistro has been a fixture in the community for over
+                  50 years. We pride ourselves on providing high-quality, fresh
                   produce, meats, and pantry items at reasonable prices. Our
                   knowledgeable staff is always on hand to help you find what
                   you need and answer any questions you may have.
+                  <br /> We source our products from local and regional
+                  suppliers whenever possible, supporting the local economy and
+                  reducing our environmental impact. Our commitment to
+                  sustainability extends to our store operations as well, with
+                  energy-efficient lighting, recycling programs, and more.
+                  <br /> In addition we also have a
+                  full-service deli, bakery, and floral department. Our deli
+                  features a wide selection of freshly prepared sandwiches,
+                  salads, and hot entrees, perfect for a quick lunch or dinner.
+                  Our bakery offers a tempting array of breads, pastries, and
+                  custom-made cakes for any occasion.
                 </p>
               </div>
               <div className="lg:mr-10">
