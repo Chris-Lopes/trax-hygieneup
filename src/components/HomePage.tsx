@@ -10,8 +10,8 @@ export default function Component() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
-      <main className="flex-1 py-8 px-6 md:px-8">
-        <h2 className="text-2xl font-bold mb-4">Featured Stores</h2>
+      <main className="flex-1 py-8 px-6 md:px-8 ">
+        <h2 className="text-2xl font-bold mb-4 container mx-auto">Featured Stores</h2>
         {/* Featured Stores */}
         <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-card rounded-lg shadow-lg overflow-hidden">
