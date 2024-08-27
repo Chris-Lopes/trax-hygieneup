@@ -103,81 +103,81 @@ function ThumbsUpIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 export default function Component() {
-  const [userData, setUserData] = useState([]);
+  // const [userData, setUserData] = useState();
   const backgroundStyle: React.CSSProperties = {
     backgroundImage: `url('/store2.png')`,
     filter: "brightness(0.5)",
   };
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch(
-          "http://127.0.0.1:5000/review/get/product_id/1",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "http://127.0.0.1:5000/review/get/product_id/1",
+  //         {
+  //           method: "GET",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //         }
+  //       );
 
-        if (response.ok) {
-          const data = await response.json();
-          console.log("Fetched user data successfully:", data);
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         console.log("Fetched user data successfully:", data);
 
-          // Update userData with the fetched data
-          setUserData(data);
-        } else {
-          const errorData = await response.json();
-          console.error("Failed to fetch user data:", errorData);
-        }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
+  //         // Update userData with the fetched data
+  //         setUserData(data);
+  //       } else {
+  //         const errorData = await response.json();
+  //         console.error("Failed to fetch user data:", errorData);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching user data:", error);
+  //     }
+  //   };
 
-    fetchUserData();
-  }, []);
+  //   fetchUserData();
+  // }, []);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
-    const rating = (e.target as any).rating.value;
-    const review = (e.target as any).review.value;
+  //   const rating = (e.target as any).rating.value;
+  //   const review = (e.target as any).review.value;
 
-    const userData = {
-      rating: rating,
-      description: review,
-      product_id: 1,
-    };
+  //   const userData = {
+  //     rating: rating,
+  //     description: review,
+  //     product_id: 1,
+  //   };
 
-    console.log(userData);
+  //   console.log(userData);
 
-    try {
-      const response = await fetch("http://127.0.0.1:5000/review/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+  //   try {
+  //     const response = await fetch("http://127.0.0.1:5000/review/create", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(userData),
+  //     });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log("User created successfully:", data);
-        return JSON.stringify(data);
-      } else {
-        const errorData = await response.json();
-        console.error("Failed to create user:", errorData);
-        // Handle error by setting error state or displaying error message
-        // setError(errorData.message);
-      }
-    } catch (error) {
-      console.error("Error creating user:", error);
-      // Handle error by setting error state or displaying error message
-      // setError("An error occurred while creating the user.");
-    }
-  };
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       console.log("User created successfully:", data);
+  //       return JSON.stringify(data);
+  //     } else {
+  //       const errorData = await response.json();
+  //       console.error("Failed to create user:", errorData);
+  //       // Handle error by setting error state or displaying error message
+  //       // setError(errorData.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error creating user:", error);
+  //     // Handle error by setting error state or displaying error message
+  //     // setError("An error occurred while creating the user.");
+  //   }
+  // };
 
   return (
     <>
@@ -259,18 +259,6 @@ export default function Component() {
               </div>
             </div>
             <div className="grid gap-8">
-              {(userData[0]) ?? (
-                <Card className="p-6 rounded-lg shadow-lg">
-                  <Review
-                    avatarSrc="/placeholder-user.jpg"
-                    avatarFallback="CH"
-                    numFilledStars={userData.rating}
-                    rating={userData.rating}
-                    reviewText={ userData.description}
-                    numHelpful={18}
-                  />
-                </Card>
-               )} 
               <Card className="p-6 rounded-lg shadow-lg">
                 <Review
                   avatarSrc="/placeholder-user.jpg"
@@ -316,7 +304,7 @@ export default function Component() {
             </div>
             <div className="grid gap-8">
               <Card className="p-6 rounded-lg shadow-lg">
-                <form onSubmit={handleSubmit} className="grid gap-4">
+                <form  className="grid gap-4">
                   <div className="grid gap-2">
                     <Label htmlFor="rating">Rating</Label>
                     <RadioGroup id="rating" name="rating" defaultValue="3">

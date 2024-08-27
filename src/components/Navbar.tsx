@@ -100,9 +100,9 @@ function SearchIcon(props: IconProps) {
 
 const Navbar: React.FC = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
-   const [userData, setUserData] = useState("");
-  const userEmail: string = "";
-  const userName: string = "";
+   const [userData, setUserData] = useState({
+    placeholder : ""
+   });
 
     useEffect(() => {
       const fetchUserData = async () => {
@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
           });
 
           if (response.ok) {
-            const data = await response.json();
+            const data  = await response.json();
             console.log("Fetched user data successfully:", data);
 
             // Update userData with the fetched data
